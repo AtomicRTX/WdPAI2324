@@ -1,0 +1,157 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Actor', sans-serif;
+}
+
+body {
+    font-size: 16px;
+}
+
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../img/restaurant.png');
+    background-size: cover;
+    background-color: inherit;
+}
+
+.panel{
+    width: 500px;
+    height: 100vh;
+    background-color: #F3F3F3;
+    overflow: auto;
+    display: list-item;
+    flex-direction: row;
+    text-align: center;
+}
+
+.logo img{
+    height: 10vh;
+    justify-content: center;
+    margin: 2em 0 2em;
+}
+
+.motto{
+    color: var(--fuenteClaro, #474c5a);
+    margin: 2em 0 0;
+}
+
+.logo p{
+    color: var(--fuenteClaro, #363D4E);
+    text-align: center;
+    font-size: 2em;
+    margin: 0;
+}
+
+.welcome-container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-container button{
+    display: inline-flex;
+    padding: 1em 5em;
+    font-size: 1em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    margin: 0 6em;
+    border-radius: 2em;
+    background: #00A8FF;
+}
+
+.welcome-container button:hover {
+    background-color: #4ABEFF;
+}
+
+.welcome-container button.In{
+    margin-top: 55vh;
+    color: #FFF;
+    text-align: center;
+}
+
+.wRegister{
+    color: var(--fuenteClaro, #363D4E);
+    margin-top: 2vh;
+}
+
+.welcome-container button.Up{
+    color: #00A8FF;
+    background: #FFFFFF;
+    margin-top: 1vh;
+}
+
+
+/*##################################################################################################################################*/
+@media only screen and (max-device-width: 430px){
+    body {
+        font-size: 3em;
+    }
+    .panel{
+        width: 100vw;
+        height: 100vh;
+        background-color: #F3F3F3;
+        display: list-item;
+        flex-direction: row;
+        text-align: center;
+    }
+
+    .logo img{
+        height: 10vh;
+        transform: scale(1.5);
+        justify-content: center;
+        margin: 2em 0 1em;
+    }
+    .logo p{
+        color: var(--fuenteClaro, #363D4E);
+        text-align: center;
+        font-size: 2em;
+        margin: 0 0 0.5em;
+    }
+    
+    .welcome-container button{
+        display: flex;
+        padding: 1em 3em;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+        margin: 0 10%;
+        border-radius: 2em;
+        background: #00A8FF;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+        
+    }
+    
+    .welcome-container button:hover {
+        background-color: #4ABEFF;
+    }
+    
+    .welcome-container button.In{
+        margin-top: 40vh;
+        font-size: 1em;
+        color: #FFF;
+        text-align: center;
+    }
+    
+    .wRegister{
+        color: var(--fuenteClaro, #363D4E);
+        margin-top: 2vh;
+        font-size: 1em;
+    }
+    
+    .welcome-container button.Up{
+        color: #00A8FF;
+    
+        background: #FFFFFF;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+        
+        font-size: 1em;
+        margin-top: 1vh;
+    }
+}

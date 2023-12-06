@@ -1,0 +1,181 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Actor', sans-serif;
+}
+
+body {
+    font-size: 16px;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../img/restaurant.png');
+    background-size: cover;
+    background-color: inherit;
+}
+
+.panel{
+    width: 500px;
+    height: 100vh;
+    background-color: #F3F3F3;
+    overflow: auto;
+    display: list-item;
+    flex-direction: row;
+    text-align: center;
+}
+
+.logo img{
+    height: 10vh;
+    justify-content: center;
+    margin: 2em 0 2em;
+}
+
+.logo p{
+    color: var(--fuenteClaro, #363D4E);
+    text-align: center;
+    font-size: 2em;
+    margin: 0 0 1em;
+}
+
+.register-container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register-container input{
+    height: 4vh;
+    border-radius: 2em;
+    background: var(--grisClaro, #F3F3F3);
+    margin: 0 6em 0.5vw;
+    text-align: inherit;
+}
+
+.register-container button{
+    display: inline-flex;
+    padding: 1em 5em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 1em;
+    margin: 0 5em;
+    border-radius: 2em;
+    background: #00A8FF;
+}
+
+.register-container button:hover {
+    background-color: #4ABEFF;
+}
+
+.register-container button.Up{
+    margin-top: 3vh;
+    color: #FFF;
+    text-align: center;
+}
+
+.login{
+    color: var(--fuenteClaro, #363D4E);
+    font-size: 16px;
+    margin-top: 28vh;
+}
+
+.register-container button.In{
+    color: #00A8FF;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    background: #FFFFFF;
+
+    margin-top: 1vh;
+}
+
+@media only screen and (max-device-width: 430px){
+
+    body {
+        font-size: 3em;
+    }
+    .panel{
+        width: 100vw;
+        height: 100vh;
+        background-color: #F3F3F3;
+        display: list-item;
+        flex-direction: row;
+        text-align: center;
+    }
+
+    .logo img{
+        height: 10vh;
+        transform: scale(1.5);
+        justify-content: center;
+        margin: 2em 0 1em;
+    }
+
+    .logo p{
+        color: var(--fuenteClaro, #363D4E);
+        text-align: center;
+        font-size: 1.5em;
+        margin: 0 0 1em;
+    }
+    
+    .register-container form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .register-container input{
+        height: 4vh;
+        
+        border-radius: 2em;
+        background: var(--grisClaro, #F3F3F3);
+        margin: 0 3em 1.5em;
+        text-align: inherit;
+        font-size: 0.8em;
+    }
+    
+    .register-container button{
+        display: flex;
+        padding: 1em 5em;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    
+        font-size: 0.8em;
+        margin: 0 3em;
+        border-radius: 2em;
+        background: #00A8FF;
+    }
+    
+    .register-container button:hover {
+        background-color: #4ABEFF;
+    }
+    
+    .register-container button.Up{
+        margin-top: 3vh;
+        color: #FFF;
+        text-align: center;
+    }
+    
+    .login{
+        color: var(--fuenteClaro, #363D4E);
+        margin-top: 18vh;
+        font-size: 0.8em;
+    }
+    
+    .register-container button.In{
+        color: #00A8FF;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    
+        background: #FFFFFF;
+    
+        margin-top: 1vh;
+    }
+}
