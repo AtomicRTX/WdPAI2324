@@ -45,12 +45,6 @@ body {
     margin: 0;
 }
 
-.welcome-container form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 .welcome-container button{
     display: inline-flex;
     padding: 1em 5em;
@@ -115,16 +109,16 @@ body {
     }
     
     .welcome-container button{
-        display: flex;
-        padding: 1em 3em;
+        padding: 1em 5em;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    
-        margin: 0 10%;
+
+        font-size: 0.8em;
+        margin: 0 5em;
         border-radius: 2em;
         background: #00A8FF;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.10);
         
     }
     
@@ -134,24 +128,26 @@ body {
     
     .welcome-container button.In{
         margin-top: 40vh;
-        font-size: 1em;
         color: #FFF;
         text-align: center;
     }
     
     .wRegister{
         color: var(--fuenteClaro, #363D4E);
-        margin-top: 2vh;
-        font-size: 1em;
+        margin-top: 5vh;
+        font-size: 0.8em;
     }
     
     .welcome-container button.Up{
         color: #00A8FF;
-    
+
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
         background: #FFFFFF;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
-        
-        font-size: 1em;
+
         margin-top: 1vh;
     }
 }

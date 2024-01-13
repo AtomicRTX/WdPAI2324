@@ -1,6 +1,6 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     font-family: 'Actor', sans-serif;
 }
 
@@ -39,6 +39,10 @@ body {
     margin: 0 0 1em;
 }
 
+.login-container{
+    position: relative;
+}
+
 .login-container form {
     display: flex;
     flex-direction: column;
@@ -49,23 +53,21 @@ body {
     height: 4vh;
     border-radius: 2em;
     background: var(--grisClaro, #F3F3F3);
-    margin: 0 6em 0.5vw;
+    margin: 0 5vw 1vh;
     text-align: inherit;
 }
 
 .login-container button{
-    display: inline-flex;
     padding: 1em 5em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
 
     font-size: 1em;
-    margin: 0 5em;
+    margin: 0 5vw;
     border-radius: 2em;
     background: #00A8FF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 0.25em 0.25em 0 rgba(0, 0, 0, 0.10);
 }
 
 .login-container button:hover {
@@ -76,31 +78,16 @@ body {
     margin-top: 3vh;
     color: #FFF;
     text-align: center;
-    font-family: 'Actor', sans-serif;
-    font-size: 1em;
 }
 
-.forget{
-    color: var(--fuenteClaro, #00A8FF);
-    text-align: center;
-    font-size: 16px;
-    margin-top: 1vh;
-}
-
-.register{
+.login-container .register{
     color: var(--fuenteClaro, #363D4E);
-    font-size: 16px;
-    margin-top: 40vh;
+    margin-top: 45vh;
 }
 
 .login-container button.Up{
     color: #00A8FF;
-    font-family: 'Actor', sans-serif;
-    font-size: 1em;
-
     background: #FFFFFF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
-
     margin-top: 1vh;
 }
 
@@ -148,17 +135,16 @@ body {
     }
 
     .login-container button{
-        display: flex;
-        padding: 0.5em 5em;
+        padding: 1em 5em;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 10px;
-    
+
         font-size: 0.8em;
-        margin: 0 2.4em;
+        margin: 0 5em;
         border-radius: 2em;
         background: #00A8FF;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.10);
     }
     .login-container button:hover {
         background-color: #4ABEFF;
@@ -169,27 +155,21 @@ body {
         color: #FFF;
         text-align: center;
     }
-    
-    .forget{
-        color: var(--fuenteClaro, #00A8FF);
-        margin-top: 1vh;
-        font-size: 0.8em;
-    }
 
-    .register{
+    .login-container .register{
         color: var(--fuenteClaro, #363D4E);
-        margin-top: 35vh;
+        margin-top: 38.2vh;
         font-size: 0.8em;
     }
     
-    .register-container button.Up{
+    .login-container .register-container button.Up{
         color: #00A8FF;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-    
+
         background: #FFFFFF;
-    
+
         margin-top: 1vh;
     }
 }

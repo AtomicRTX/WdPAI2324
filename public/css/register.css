@@ -39,6 +39,10 @@ body {
     margin: 0 0 1em;
 }
 
+.register-container{
+    position: relative;
+}
+
 .register-container form {
     display: flex;
     flex-direction: column;
@@ -54,17 +58,16 @@ body {
 }
 
 .register-container button{
-    display: inline-flex;
     padding: 1em 5em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
 
     font-size: 1em;
     margin: 0 5em;
     border-radius: 2em;
     background: #00A8FF;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.10);
 }
 
 .register-container button:hover {
@@ -79,17 +82,14 @@ body {
 
 .login{
     color: var(--fuenteClaro, #363D4E);
-    font-size: 16px;
-    margin-top: 28vh;
+    margin-top: 29.3vh;
 }
 
 .register-container button.In{
     color: #00A8FF;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
 
     background: #FFFFFF;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.10);
 
     margin-top: 1vh;
 }
@@ -139,17 +139,16 @@ body {
     }
     
     .register-container button{
-        display: flex;
         padding: 1em 5em;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 10px;
-    
+
         font-size: 0.8em;
-        margin: 0 3em;
+        margin: 0 5em;
         border-radius: 2em;
         background: #00A8FF;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.10);
     }
     
     .register-container button:hover {

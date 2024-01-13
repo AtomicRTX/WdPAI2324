@@ -16,14 +16,21 @@
                 <p>Sign in to ReservEat</p>
             </div>
             <div class="login-container">
-                <form>
+                <form class="login" action="login" method="POST">
                     <input name="email" type="text" placeholder="E-mail">
                     <input name="password" type="password" placeholder="Password">
-                    <button class="In">Sign in</button>
-                    <div class="forget">Forgot password ?</div>
-                    <div class="register">You don't have an account ?</div>
-                    <button class="Up">Sign up</button>
+                    <?php if (isset($messages)){
+                        foreach ($messages as $message){
+                            echo '<span style="color: red;">' . $message . '</span>';
+                        }
+                    }
+                    ?>
+                    <a href="#"><button type="submit" class="In">Sign in</button></a>
                 </form>
+                <div class="register">You don't have an account ?</div>
+                <a href="register" class="linkUp">
+                    <button class="Up">Sign up</button>
+                </a>
             </div>
         </div>
     </div>

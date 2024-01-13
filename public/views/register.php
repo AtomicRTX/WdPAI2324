@@ -22,12 +22,14 @@
                     <input name="email" type="text" placeholder="E-mail">
                     <input name="password" type="password" placeholder="Password">
                     <input name="phoneNumber" type="password" placeholder="Phone number">
-                    <button class="Up">Sign in</button>
+                    <a href="#"><button class="Up">Sign in</button></a>
                     <div class="login">
                         <p>You already have an account ?</p>
                     </div>
-                    <button class="In">Sign in</button>
                 </form>
+                <a href="login">
+                    <button class="In">Sign in</button>
+                </a>
             </div>
         </div>
     </div>

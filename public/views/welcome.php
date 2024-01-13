@@ -17,13 +17,15 @@
             </div>
             <div class="motto">Your Culinary Journey Begins Here: Reserve, Savor, Repeat!</div>
             <div class="welcome-container">
-                <form>
+                <a href="login">
                     <button class="In">Sign in</button>
-                    <div class="wRegister">
-                        <p>You don't have an account ?</p>
-                    </div>
+                </a>
+                <div class="wRegister">
+                    <p>You don't have an account ?</p>
+                </div>
+                <a href="register">
                     <button class="Up">Sign up</button>
-                </form>
+                </a>
             </div>
         </div>
     </div>
