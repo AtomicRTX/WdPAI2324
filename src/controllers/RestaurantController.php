@@ -82,4 +82,9 @@ class RestaurantController extends AppController
         $restaurant = $this->restaurantRepository->getRestaurantByID($restaurantId);
         $this->render('restaurant_details', ['restaurant' => $restaurant]);
     }
+    public function restaurant_reservation(){
+        $restaurantId = $_GET['id'];
+        $restaurant = $this->restaurantRepository->getRestaurantByID($restaurantId);
+        $this->render('restaurant_reservation', ['restaurant' => $restaurant]);
+    }
 }

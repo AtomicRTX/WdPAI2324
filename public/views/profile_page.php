@@ -1,3 +1,16 @@
+<?php
+
+if (!isset($_SESSION['user'])) {
+    header("Location: login");
+    exit();
+}
+$userName = $_SESSION['user']['name'];
+$userSurname = $_SESSION['user']['surname'];
+$userEmail = $_SESSION['user']['email'];
+
+?>
+
+
 <!DOCTYPE html>
 
 <head>

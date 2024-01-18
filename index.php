@@ -6,13 +6,12 @@ $path = trim($_SERVER['REQUEST_URI'], '/');
 $path = parse_url( $path, PHP_URL_PATH);
 
 Router::get('', 'DefaultController');
-Router::get('login', 'DefaultController');
-Router::get('register', 'DefaultController');
 Router::get('home_page', 'RestaurantController');
 Router::get('profile_page', 'DefaultController');
 Router::get('restaurant_page', 'RestaurantController');
 
 Router::get('restaurant_details', 'RestaurantController');
+Router::get('restaurant_reservation', 'RestaurantController');
 
 Router::get('italian', 'RestaurantController');
 Router::get('indian', 'RestaurantController');
@@ -26,5 +25,8 @@ Router::get('burgers', 'RestaurantController');
 Router::get('vegetarian', 'RestaurantController');
 
 Router::post('login', 'SecurityController');
+Router::post('register', 'SecurityController');
+Router::get('logout', 'DefaultController');
+
 
 Router::run($path);

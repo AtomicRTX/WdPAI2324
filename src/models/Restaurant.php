@@ -2,6 +2,15 @@
 
 class Restaurant
 {
+    public function getResLogo(): string
+    {
+        return $this->res_logo;
+    }
+
+    public function setResLogo(string $res_logo): void
+    {
+        $this->res_logo = $res_logo;
+    }
     public function getResId(): int
     {
         return $this->res_id;
@@ -25,16 +34,18 @@ class Restaurant
     private $res_id;
     private $res_name;
     private $res_location;
+    private $res_logo;
+    private $res_image;
     private $res_d;
-    private $res_url;
     private $res_rating;
 
-    public function __construct(int $id, string $name, string $location, string $image, string $description, int $rating)
+    public function __construct(int $id, string $name, string $location, string $logo, string $image, string $description, int $rating)
     {
         $this->res_id = $id;
         $this->res_name = $name;
         $this->res_location = $location;
-        $this->res_url = $image;
+        $this->res_logo = $logo;
+        $this->res_image = $image;
         $this->res_d = $description;
         $this->res_rating = $rating;
     }
@@ -69,14 +80,14 @@ class Restaurant
         $this->res_d = $res_d;
     }
 
-    public function getResurl()
+    public function getResImage()
     {
-        return $this->res_url;
+        return $this->res_image;
     }
 
-    public function setResurl(string $res_url): void
+    public function setResImage(string $Image): void
     {
-        $this->res_url = $res_url;
+        $this->res_image = $Image;
     }
 
 }

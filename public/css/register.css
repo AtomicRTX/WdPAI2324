@@ -57,6 +57,13 @@ body {
     text-align: inherit;
 }
 
+.no-valid {
+    border: 3px solid red;
+    border-radius: 2em;
+    box-shadow: 0 0 0.2em red;
+    outline: none;
+}
+
 .register-container button{
     padding: 1em 5em;
     flex-direction: column;
@@ -66,7 +73,7 @@ body {
     font-size: 1em;
     margin: 0 5em;
     border-radius: 2em;
-    background: #00A8FF;
+    background: #52b6e9;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.10);
 }
 
@@ -82,11 +89,11 @@ body {
 
 .login{
     color: var(--fuenteClaro, #363D4E);
-    margin-top: 29.3vh;
+    margin-top: 23.3vh;
 }
 
 .register-container button.In{
-    color: #00A8FF;
+    color: #52b6e9;
 
     background: #FFFFFF;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.10);
@@ -147,7 +154,7 @@ body {
         font-size: 0.8em;
         margin: 0 5em;
         border-radius: 2em;
-        background: #00A8FF;
+        background: #52b6e9;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.10);
     }
     
@@ -168,7 +175,7 @@ body {
     }
     
     .register-container button.In{
-        color: #00A8FF;
+        color: #52b6e9;
         font-style: normal;
         font-weight: 400;
         line-height: normal;

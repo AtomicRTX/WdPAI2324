@@ -20,7 +20,8 @@ class RestaurantRepository extends Repository
                 $restaurant['res_id'],
                 $restaurant['res_name'],
                 $restaurant['res_location'],
-                $restaurant['res_url'],
+                $restaurant['res_logo'],
+                $restaurant['res_image'],
                 $restaurant['res_d'],
                 $restaurant['res_rating'],
             );
@@ -44,7 +45,8 @@ class RestaurantRepository extends Repository
                 $restaurant['res_id'],
                 $restaurant['res_name'],
                 $restaurant['res_location'],
-                $restaurant['res_url'],
+                $restaurant['res_logo'],
+                $restaurant['res_image'],
                 $restaurant['res_d'],
                 $restaurant['res_rating'],
             );
@@ -74,7 +76,8 @@ class RestaurantRepository extends Repository
                 $restaurant['res_id'],
                 $restaurant['res_name'],
                 $restaurant['res_location'],
-                $restaurant['res_url'],
+                $restaurant['res_logo'],
+                $restaurant['res_image'],
                 $restaurant['res_d'],
                 $restaurant['res_rating'],
             );
@@ -94,12 +97,13 @@ class RestaurantRepository extends Repository
 
         $restaurants = $stmt->fetch(PDO::FETCH_ASSOC);
         $restaurant= new Restaurant(
-                $restaurants['res_id'],
-                $restaurants['res_name'],
-                $restaurants['res_location'],
-                $restaurants['res_url'],
-                $restaurants['res_d'],
-                $restaurants['res_rating'],
+            $restaurants['res_id'],
+            $restaurants['res_name'],
+            $restaurants['res_location'],
+            $restaurants['res_logo'],
+            $restaurants['res_image'],
+            $restaurants['res_d'],
+            $restaurants['res_rating'],
             );
         return $restaurant;
     }

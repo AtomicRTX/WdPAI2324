@@ -56,7 +56,7 @@ body {
 
     margin: 0 6em;
     border-radius: 2em;
-    background: #00A8FF;
+    background: #52b6e9;
 }
 
 .welcome-container button:hover {
@@ -75,7 +75,7 @@ body {
 }
 
 .welcome-container button.Up{
-    color: #00A8FF;
+    color: #52b6e9;
     background: #FFFFFF;
     margin-top: 1vh;
 }

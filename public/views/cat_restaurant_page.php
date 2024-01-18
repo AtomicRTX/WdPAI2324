@@ -1,3 +1,16 @@
+<?php
+
+if (!isset($_SESSION['user'])) {
+    header("Location: login");
+    exit();
+}
+$userName = $_SESSION['user']['name'];
+$userSurname = $_SESSION['user']['surname'];
+$userEmail = $_SESSION['user']['email'];
+
+?>
+
+
 <!DOCTYPE html>
 
 <head>
@@ -50,8 +63,10 @@
                 </a>
             </li>
             <div class="userID">
-                Dawid Kubacki
-                <p>dawid.kubacki54@gmail.com</p>
+                <?php
+                echo $userName.' '.$userSurname;
+                ?>
+                <p><?php echo $userEmail; ?></p>
             </div>
         </ul>
     </nav>
@@ -66,9 +81,9 @@
         <section>
             <?php
             foreach ($restaurants as $restaurant): ?>
-                <a href="#">
+                <a href="restaurant_details?id=<?=$restaurant->getResId();?>">
                     <div class="restaurant">
-                        <img src="<?= $restaurant->getResurl(); ?>" alt="Opis obrazka">
+                        <img src="<?= $restaurant->getResLogo(); ?>" alt="Opis obrazka">
                         <div class="info">
                             <div class="infoB">
                                 <p><?= $restaurant->getResName(); ?></p>

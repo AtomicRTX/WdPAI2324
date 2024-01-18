@@ -35,6 +35,7 @@ main{
     display: flex;
     flex-direction: column;
     height: 100vh;
+    flex: 1;
 }
 
 nav > .logo{
@@ -190,52 +191,47 @@ section{
 
 /*##########################################################################################################################################*/
 
-
-main > .categories_name{
-    margin-left: 1em;
-    font-size: 2em;
-}
-
-main > .categories{
-    margin-left: 3em;
-    margin-bottom: 1em;
+main > header {
+    height: 30%;
+    background-color: #FFFFFF;
     display: flex;
-    align-items: center;
-    text-align: center;
-
-    flex-shrink: 0;
-    overflow-x: auto;
-    max-height: 66vh;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+main > .panel{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    min-height: 60vh;
 }
 
-main > .categories a{
-    margin: 1em 1em;
-    align-items: center;
-    text-align: center;
-}
-
-main > .categories .cat {
-    text-decoration: none;
-    color: inherit;
-}
-
-main > .categories .cat.active{
-    font-weight: bold;
-}
-
-main > header{
-    width: 100%;
-    height: 30vh;
-}
-
-section > nav{
+main > .panel > nav {
     width: 290px;
-    height: 70%;
-    background: var(--White, #FFF);
+    height: 100%;
+    background-color: #F5F5F5;
+}
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+main > .panel > div {
+    flex: 2;
+    width: calc(100% - 290px);
+    height: 100%;
+    background-color: #FFFFFF;
+}
+
+.restaurant-details {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+main > .panel > div > h1 {
+    margin: 1em 0.5em;
+    color: #333;
+}
+
+main > .panel > div > p {
+    padding: 1em;
+    color: #666;
+    margin: 1em 0.5em;
 }
 
 /*##########################################################################################################################################*/
