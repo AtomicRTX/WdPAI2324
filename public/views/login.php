@@ -13,7 +13,7 @@ if(isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="public/css/login.css">
-    <title>LOGIN PAGE</title>
+    <title>ReservEat</title>
 </head>
 
 <body>

@@ -31,11 +31,6 @@ class SecurityController extends AppController
         if($user->getEmail() !== $email){
             return $this->render('login', ['messages' => ['User with this email not exist!!']]);
         }
-        /*
-        if($user->getPassword() !== $password){
-            return $this->render('login', ['messages' => ['Wrong password']]);
-        }
-        */
 
         if (!password_verify($password, $user->getPassword())) {
             return $this->render('login', ['messages' => ['Wrong password']]);
@@ -49,6 +44,8 @@ class SecurityController extends AppController
             'email' => $user->getEmail(),
             'name' => $user->getName(),
             'surname' => $user->getSurname(),
+            'phone' => $user->getPhone(),
+            'type' => $user->getType()
         ];
 
         $url = "http://$_SERVER[HTTP_HOST]";
@@ -84,7 +81,7 @@ class SecurityController extends AppController
         }
 
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        $user = new User($name, $surname, $email, $hashedPassword, $phone);
+        $user = new User($name, $surname, $email, $hashedPassword, $phone, $type);
 
         //$user = new User($name, $surname, $email, $password, $phone);
 

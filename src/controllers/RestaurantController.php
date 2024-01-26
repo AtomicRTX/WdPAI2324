@@ -6,10 +6,6 @@ require_once __DIR__.'/../repository/RestaurantRepository.php';
 
 class RestaurantController extends AppController
 {
-    const MAX_FILE_SIZE = 1024*1024;
-    const SUPPORTED_TYPES = ['image/png', 'image/jpeg'];
-
-    private $message = [];
     private $restaurantRepository;
 
     public function __construct()
@@ -28,54 +24,33 @@ class RestaurantController extends AppController
         $this->render('home_page', ['restaurants' => $restaurants]);
     }
 
+    public function add_restaurant(){
+        $restaurantRepository = new RestaurantRepository();
+
+        if (!$this->isPost()) {
+            return $this->render('add_restaurant');
+        }
+
+        $res_name = $_POST['res_name'];
+        $res_location = $_POST['res_location'];
+        $res_logo = $_POST['res_logo'];
+        $res_image = $_POST['res_image'];
+        $res_d = $_POST['res_d'];
+        $res_rating = $_POST['res_rating'];
+
+        $restaurant = new Restaurant($res_name, $res_location, $res_logo, $res_image, $res_d, $res_rating);
+
+        $restaurantRepository->addRestaurant($restaurant);
+
+        return $this->render('add_restaurant', ['messages' => ['Restaurant added successfully.']]);
+    }
+
     ////////////////////////////////////////////////////////////////////////////
 
-    public function italian(){
-        $restaurants = $this->restaurantRepository->getRestaurantsByCategory('italian');
-        $this->render('cat_restaurant_page', ['restaurants' => $restaurants]);
-    }
-
-    public function indian(){
-        $restaurants = $this->restaurantRepository->getRestaurantsByCategory('indian');
-        $this->render('cat_restaurant_page', ['restaurants' => $restaurants]);
-    }
-
-    public function sushi(){
-        $restaurants = $this->restaurantRepository->getRestaurantsByCategory('sushi');
-        $this->render('cat_restaurant_page', ['restaurants' => $restaurants]);
-    }
-    public function mexican(){
-        $restaurants = $this->restaurantRepository->getRestaurantsByCategory('mexican');
-        $this->render('cat_restaurant_page', ['restaurants' => $restaurants]);
-    }
-    public function thai(){
-        $restaurants = $this->restaurantRepository->getRestaurantsByCategory('thai');
-        $this->render('cat_restaurant_page', ['restaurants' => $restaurants]);
-    }
-
-    public function vietnamese(){
-        $restaurants = $this->restaurantRepository->getRestaurantsByCategory('vietnamese');
-        $this->render('cat_restaurant_page', ['restaurants' => $restaurants]);
-    }
-
-    public function seafood(){
-        $restaurants = $this->restaurantRepository->getRestaurantsByCategory('seafood');
-        $this->render('cat_restaurant_page', ['restaurants' => $restaurants]);
-    }
-
-    public function chinese(){
-        $restaurants = $this->restaurantRepository->getRestaurantsByCategory('chinese');
-        $this->render('cat_restaurant_page', ['restaurants' => $restaurants]);
-    }
-
-    public function burgers(){
-        $restaurants = $this->restaurantRepository->getRestaurantsByCategory('burgers');
-        $this->render('cat_restaurant_page', ['restaurants' => $restaurants]);
-    }
-
-    public function vegetarian(){
-        $restaurants = $this->restaurantRepository->getRestaurantsByCategory('vegetarian');
-        $this->render('cat_restaurant_page', ['restaurants' => $restaurants]);
+    public function categories_page(){
+        $category = $_GET['cat'];
+        $restaurants = $this->restaurantRepository->getRestaurantsByCategory($category);
+        $this->render('categories_page', ['restaurants' => $restaurants]);
     }
     public function restaurant_details(){
         $restaurantId = $_GET['id'];
@@ -84,7 +59,21 @@ class RestaurantController extends AppController
     }
     public function restaurant_reservation(){
         $restaurantId = $_GET['id'];
+
         $restaurant = $this->restaurantRepository->getRestaurantByID($restaurantId);
-        $this->render('restaurant_reservation', ['restaurant' => $restaurant]);
+        if(!$this->isPost()) {
+            $this->render('restaurant_reservation', ['restaurant' => $restaurant, 'messages' => '']);
+        }
+
+        $userEmail = $_SESSION['user']['email'];
+        $date = new DateTime($_POST["selectedDate"]);
+        $np = $_POST['selectedNumberOfPeople'];
+        $time = new DateTime($_POST['selectedTime']);
+        $dateP = $date->format('Y-m-d');
+        $timeP = $time->format('H:i');
+
+        $result = $this->restaurantRepository->reservation($userEmail, $restaurantId, $dateP, $timeP, $np);
+        $this->render('restaurant_reservation', ['restaurant' => $restaurant, 'messages' => $result]);
     }
+
 }

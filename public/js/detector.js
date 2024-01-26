@@ -20,7 +20,6 @@ function markValidation(element, condition) {
 
 function validateEmail() {
     setTimeout(function () {
-        console.log('email event');
             markValidation(emailInput, isEmail(emailInput.value));
         },
         1000

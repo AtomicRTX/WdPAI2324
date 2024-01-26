@@ -7,7 +7,7 @@ if (!isset($_SESSION['user'])) {
 $userName = $_SESSION['user']['name'];
 $userSurname = $_SESSION['user']['surname'];
 $userEmail = $_SESSION['user']['email'];
-
+$userType = $_SESSION['user']['type'];
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ $userEmail = $_SESSION['user']['email'];
 </head>
 
 <body>
-    <div class="desktop">
+    <li class="desktop">
         <nav>
             <div class="logo">
                 <img src="public/img/logo.svg">
@@ -35,38 +35,46 @@ $userEmail = $_SESSION['user']['email'];
                         Home
                     </a>    
                 </li>
-                <div class='chosen'>
-                    <li>
-                        <a href="restaurant_page" class="button">
-                            <i class="fa-solid fa-utensils"></i>
-                            Restaurants
-                        </a>    
-                    </li>
-                </div>
+                <li class='chosen'>
+                    <a href="restaurant_page" class="button">
+                        <i class="fa-solid fa-utensils"></i>
+                        Restaurants
+                    </a>
+                </li>
                 <li>
                     <a href="#" class="button">
                         <i class="fa-regular fa-calendar"></i>
                         My reservation
                     </a>    
                 </li>
+                <?php
+                if ($userType == 2) {
+                    echo '<li>
+                            <a href="add_restaurant" class="button">
+                                <i class="fa-solid fa-plus"></i>
+                                Add restaurant
+                            </a>
+                        </li>';
+                }
+                ?>
                 <li>
-                    <a href="#" class="button">
+                    <a href="profile_page" class="button">
                         <i class="fa-solid fa-user"></i>
                         My profile
                     </a>   
                 </li>
                 <li>
-                    <a href="#" class="button">
+                    <a href="logout" class="button">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         Sign out
                     </a>   
                 </li>
-                <div class="userID">
+                <li class="userID">
                     <?php
                     echo $userName.' '.$userSurname;
                     ?>
                     <p><?php echo $userEmail; ?></p>
-                </div>
+                </li>
             </ul>
         </nav>
         <main>
@@ -76,7 +84,7 @@ $userEmail = $_SESSION['user']['email'];
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </form>
             </header>
-            <p>Dostepne restauracje</p>
+            <p>Restaurants available</p>
             <section>
                 <?php
                     foreach ($restaurants as $restaurant): ?>
@@ -88,7 +96,8 @@ $userEmail = $_SESSION['user']['email'];
                                         <p><?= $restaurant->getResName(); ?></p>
                                         <p><?= $restaurant->getResLocation(); ?></p>
                                     </div>
-                                    <p>Rating według uzytkowników : <?= $restaurant->getResRating(); ?> gwiazdek</p>
+                                    <p>
+                                        Rating according to users : <?= $restaurant->getResRating(); ?>stars</p>
                                 </div>
                             </div>
                         </a>

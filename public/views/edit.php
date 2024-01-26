@@ -7,6 +7,7 @@ if (!isset($_SESSION['user'])) {
 $userName = $_SESSION['user']['name'];
 $userSurname = $_SESSION['user']['surname'];
 $userEmail = $_SESSION['user']['email'];
+$userPhone = $_SESSION['user']['phone'];
 $userType = $_SESSION['user']['type'];
 ?>
 
@@ -18,11 +19,12 @@ $userType = $_SESSION['user']['type'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/fc73b75636.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="public/css/restaurant_details.css">
+    <link rel="stylesheet" type="text/css" href="public/css/profile_page.css">
     <title>ReservEat</title>
 </head>
 
 <body>
+
 <div class="desktop">
     <nav>
         <div class="logo">
@@ -36,7 +38,7 @@ $userType = $_SESSION['user']['type'];
                     Home
                 </a>
             </li>
-            <li class='chosen'>
+            <li>
                 <a href="restaurant_page" class="button">
                     <i class="fa-solid fa-utensils"></i>
                     Restaurants
@@ -58,7 +60,7 @@ $userType = $_SESSION['user']['type'];
                         </li>';
             }
             ?>
-            <li>
+            <li class='chosen'>
                 <a href="profile_page" class="button">
                     <i class="fa-solid fa-user"></i>
                     My profile
@@ -70,52 +72,58 @@ $userType = $_SESSION['user']['type'];
                     Sign out
                 </a>
             </li>
-            <div class="userID">
+            <li class="userID">
                 <?php
                 echo $userName.' '.$userSurname;
                 ?>
                 <p><?php echo $userEmail; ?></p>
-            </div>
+            </li>
         </ul>
     </nav>
     <main>
-        <header style="background-image: url('<?= $restaurant->getResImage(); ?>'); background-size: cover;">
-                <a href="home_page">
-                    <i class="fa-solid fa-circle-arrow-left"></i>
-                </a>
-                <form class='search_bar'>
-                    <input name="Search by name" type="text" placeholder="Search by name">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </form>
+        <header>
+            <form class='search_bar'>
+                <input name="Search by name" type="text" placeholder="Search by name">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </form>
         </header>
-        <div class="panel">
-            <nav>
-                <ul>
-                    <div class='chosen'>
-                        <li>
-                            <a href="restaurant_details?id=<?=$restaurant->getResId();?>" class="button">
-                                <i class="fa-solid fa-circle-info"></i>
-                                Info
-                            </a>
-                        </li>
-                    </div>
-                    <li>
-                        <a href="restaurant_reservation?id=<?=$restaurant->getResId();?>" class="button">
-                            <i class="fa-regular fa-calendar"></i>
-                            Reservation
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+        <div class="profile">
+            <div class="my">
+                My profile
+            </div>
+            <div class="update">
+                Update your profile information
+            </div>
+            <div class="title">
+                <div class="title_basic">
+                    Basic information
+                </div>
+                <a href="edit" class="edit">
+                    Edit
+                </a>
+            </div>
 
-            <div class="restaurant-details">
-                <h1><?php echo $restaurant->getResName(); ?></h1>
-                <p><?php echo $restaurant->getResd(); ?></p>
-                <p><?php echo $restaurant->getResLocation(); ?></p>
+            <div class="basicInformation">
+                <div class="data">
+                    <div>
+                        Name : <?php echo $userName; ?>
+                    </div>
+                    <div>
+                        Surname : <?php echo $userSurname; ?>
+                    </div>
+                    <div>
+                        E-mail : <?php echo $userEmail; ?>
+                    </div>
+                    <div>
+                        Phone number : <?php echo $userPhone; ?>
+                    </div>
+                </div>
+                <div class="photo">
+                    <img src="public/img/addrestaurant.svg">
+                </div>
             </div>
         </div>
-</div>
-</div>
+    </main>
 </div>
 <div class="mobile">
     <div class="welcome">

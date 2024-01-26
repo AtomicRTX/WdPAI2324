@@ -11,22 +11,14 @@ Router::get('profile_page', 'DefaultController');
 Router::get('restaurant_page', 'RestaurantController');
 
 Router::get('restaurant_details', 'RestaurantController');
-Router::get('restaurant_reservation', 'RestaurantController');
-
-Router::get('italian', 'RestaurantController');
-Router::get('indian', 'RestaurantController');
-Router::get('sushi', 'RestaurantController');
-Router::get('mexican', 'RestaurantController');
-Router::get('thai', 'RestaurantController');
-Router::get('vietnamese', 'RestaurantController');
-Router::get('seafood', 'RestaurantController');
-Router::get('chinese', 'RestaurantController');
-Router::get('burgers', 'RestaurantController');
-Router::get('vegetarian', 'RestaurantController');
+Router::post('restaurant_reservation', 'RestaurantController');
+Router::get('categories_page', 'RestaurantController');
+Router::get('logout', 'DefaultController');
 
 Router::post('login', 'SecurityController');
 Router::post('register', 'SecurityController');
-Router::get('logout', 'DefaultController');
+Router::post('add_restaurant', 'RestaurantController');
+
 
 
 Router::run($path);

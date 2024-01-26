@@ -187,8 +187,6 @@ section{
     margin-right: 1em;
 }
 
-
-
 /*##########################################################################################################################################*/
 
 main > header {
@@ -218,7 +216,7 @@ main > .panel > div {
     background-color: #FFFFFF;
 }
 
-.restaurant-details {
+.restaurant-details > form{
     background-color: #fff;
     display: flex;
     flex-direction: column;

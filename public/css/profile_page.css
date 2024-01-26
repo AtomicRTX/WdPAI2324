@@ -2,125 +2,133 @@
     margin: 0px;
     padding: 0px;
     font-family: 'Actor', sans-serif;
-}  
+}
 
 body {
     font-size: 16px;
     background-color: #F3F3F3;
 }
 
+.mobile{
+    display: none;
+}
+
 .desktop {
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
     height: 100vh;
 }
 
-.panel{
-    flex: 0;
+nav{
     width: 290px;
-    background-color: #FFFFFF;
+    height: 100%;
+    background: var(--White, #FFF);
+
+    display: flex;
     flex-direction: column;
-    text-align: center;
-    align-items: left;
+    justify-content: flex-start;
 }
 
-.panel .logo{
+main{
+    width: calc(100% - 290px);
     display: flex;
-    justify-content: left;
+    flex-direction: column;
+    height: 100vh;
+}
+
+nav > .logo{
+    display: flex;
+    flex-direction: row;
     text-align: center;
     align-items: center;
     margin: 1em 1em;
 }
 
-.panel .logo img{
+nav > .logo img{
     height: 10vh;
     transform: scale(0.7);
 }
 
-.panel .logo p{
+nav > .logo p{
     color: var(--fuenteClaro, #363D4E);
     font-size: 2em;
 }
 
-.panel .menu_bar .home, .panel .menu_bar .restaurants, .panel .menu_bar .reservation {
-    margin: 1em 2em;
-    display: flex;
-    align-items: center;
+a{
     text-decoration: none;
-    color: inherit;
+    display: inline-block;
+    line-height: 2em;
+    font-size: 1.25em;
+    color: #363D4E;
 }
 
-.panel .menu_bar .home p, .panel .menu_bar .restaurants p, .panel .menu_bar .reservation p {
-    margin-left: 1em;
+li i {
+    font-size: 1.25em;
 }
 
-.panel .menu_bar .home.active, .panel .menu_bar .restaurants.active, .panel .menu_bar .reservation.active {
-    font-weight: bold;
-}
-
-.panel .user_bar .act{
-    margin: 58vh 1em 1em;
-    width: 86%;
-    height: 2em;
-    border-style: solid;
-    border-color: #00A8FF;
-    background-color: #00A8FF;
-}
-
-.panel .user_bar .profile{
-    margin: 0 0.7em;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-}
-
-
-.panel .user_bar .logout{
-    margin: 1em 2.2em;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-}
-
-.panel .user_bar .profile p{
-    margin-left: 1em;
-}
-.panel .user_bar .logout p{
-    margin-left: 1.3em;
-}
-
-.panel .user_bar .profile.active, .user_bar .logout.active{
-    font-weight: bold;
-}
-
-.panel .user_bar .userID{
-    margin: 4vh;
-    margin-left: 3em;
+.button{
+    margin-left: 1.5em;
     text-align: left;
-    font-size: 0.7em;
+    letter-spacing: 1px;
+    padding: 0.2em;
+    color: #363D4E;
+    width: 70%;
 }
 
-.panel .user_bar .userID p{
-    color: var(--fuenteClaro, #363D4E);
+ul{
+    list-style-type: none;
+    height: 100%;
+    position: relative;
 }
 
+
+.chosen{
+    line-height: 2em;
+    border-style: solid;
+    border-color: #52b6e9;
+    background-color: #52b6e9;
+}
+
+li:nth-last-child(3) {
+    position: absolute;
+    bottom: 7em;
+    width: 100%;
+}
+
+li:nth-last-child(2) {
+    position: absolute;
+    bottom: 4em;
+    width: 100%;
+}
+
+
+.userID {
+    position: absolute;
+    left: 2em;
+    bottom: 1em;
+
+    font-size: 0.8em;
+    margin-left: 0.5em;
+    text-align: left;
+    padding: 0.2em;
+    color: #6c7383;
+    width: 50%;
+}
 /*##########################################################################################################################################*/
 
-.right_panel .search_bar {
+header {
     display: flex;
-    align-items: center;
     justify-content: flex-end;
-    height: 10vh;
-    width: 85vw;
+    padding: 1em 2em;
 }
 
-.right_panel .search_bar form {
+header > .search_bar{
     position: relative;
     margin: 0 1em;
 }
 
-.right_panel .search_bar form input {
+header > .search_bar > input{
     border-radius: 1em;
     background-color: #FFFFFF;
     border: #FFFFFF;
@@ -128,76 +136,70 @@ body {
     font-size: 1em;
     padding: 0.7em;
 }
-.right_panel .search_bar form img {
+
+header > .search_bar > i {
     position: absolute;
     top: 50%;
     right: 1em;
     transform: translateY(-50%);
-    max-width: 20px;
-    height: auto;
 }
 
-.right_panel .profile {
+main > .profile {
     margin: 1em 2em 1em;
 }
 
-.right_panel .profile .my{
+main > .profile .my{
     font-size: 2.2em;
     margin-bottom: 0.5em;
 }
 
-.right_panel .profile .update{
+main > .profile .update{
     font-size: 1.2em;
     margin-bottom: 1.5em;
 }
 
-.right_panel .profile .title{
+main > .profile .title{
     display: flex;
     font-size: 1em;
 }
 
-.right_panel .profile .title .title_basic{
+main > .profile .title .title_basic{
     font-size: 2.2em;
     margin-bottom: 1em;
 }
 
-.right_panel .profile .title .edit{
+main > .profile .title .edit{
     font-size: 1.3em;
-    margin-top: 0.6em;
-    margin-left: 0.8em;
-    color: #00A8FF;
+    margin-top: 0.4em;
+    margin-left: 0.4em;
+    color: #52b6e9;
     text-decoration: none;
 }
 
-.right_panel .profile .basicInformation{
+main > .profile .basicInformation{
     font-size: 1.2em;
     display: flex;
 }
 
-.right_panel .profile .basicInformation .data .name{
+main > .profile .basicInformation .data div:first-child{
     margin-top: 2em;
 }
 
-.right_panel .profile .basicInformation .data .name,
-.right_panel .profile .basicInformation .data .surname,
-.right_panel .profile .basicInformation .data .e-mail,
-.right_panel .profile .basicInformation .data .phone{
-    margin-bottom: 0.6em;
+main > .profile .basicInformation .data div{
+    margin-bottom: 1em;
 }
 
-.right_panel .profile .basicInformation .photo{
+main > .profile .basicInformation .photo{
     display: flex;
     flex-direction: column;
     margin-left: 10em;
     align-items: center;
 }
 
-.right_panel .profile .basicInformation .photo a{
-    margin-top: 0.5em;
-    color: #00A8FF;
-    text-decoration: none;
+main > .profile .basicInformation .photo img{
+    width: 200px;
+    height: 220px;
 }
-
 /*##########################################################################################################################################*/
 
 @media only screen and (max-device-width: 430px){

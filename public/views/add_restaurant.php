@@ -4,12 +4,15 @@ if (!isset($_SESSION['user'])) {
     header("Location: login");
     exit();
 }
+if($_SESSION['user']['type'] == 1){
+    header("Location: login");
+    exit();
+}
 $userName = $_SESSION['user']['name'];
 $userSurname = $_SESSION['user']['surname'];
 $userEmail = $_SESSION['user']['email'];
 $userType = $_SESSION['user']['type'];
 ?>
-
 
 <!DOCTYPE html>
 
@@ -18,8 +21,8 @@ $userType = $_SESSION['user']['type'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/fc73b75636.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="public/css/restaurant_details.css">
-    <title>ReservEat</title>
+    <link rel="stylesheet" type="text/css" href="public/css/add_restaurant.css">
+    <title>HOME PAGE</title>
 </head>
 
 <body>
@@ -36,7 +39,7 @@ $userType = $_SESSION['user']['type'];
                     Home
                 </a>
             </li>
-            <li class='chosen'>
+            <li'>
                 <a href="restaurant_page" class="button">
                     <i class="fa-solid fa-utensils"></i>
                     Restaurants
@@ -48,23 +51,19 @@ $userType = $_SESSION['user']['type'];
                     My reservation
                 </a>
             </li>
-            <?php
-            if ($userType == 2) {
-                echo '<li>
-                            <a href="add_restaurant" class="button">
-                                <i class="fa-solid fa-plus"></i>
-                                Add restaurant
-                            </a>
-                        </li>';
-            }
-            ?>
-            <li>
+            <li class='chosen'>
+                <a href="#" class="button">
+                    <i class="fa-solid fa-plus"></i>
+                    Add restaurant
+                </a>
+            </li>
+            <li class="mp">
                 <a href="profile_page" class="button">
                     <i class="fa-solid fa-user"></i>
                     My profile
                 </a>
             </li>
-            <li>
+            <li class="so">
                 <a href="logout" class="button">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     Sign out
@@ -79,43 +78,34 @@ $userType = $_SESSION['user']['type'];
         </ul>
     </nav>
     <main>
-        <header style="background-image: url('<?= $restaurant->getResImage(); ?>'); background-size: cover;">
-                <a href="home_page">
-                    <i class="fa-solid fa-circle-arrow-left"></i>
-                </a>
-                <form class='search_bar'>
-                    <input name="Search by name" type="text" placeholder="Search by name">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </form>
+        <header>
+            <form class='search_bar'>
+                <input name="Search by name" type="text" placeholder="Search by name">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </form>
         </header>
-        <div class="panel">
-            <nav>
-                <ul>
-                    <div class='chosen'>
-                        <li>
-                            <a href="restaurant_details?id=<?=$restaurant->getResId();?>" class="button">
-                                <i class="fa-solid fa-circle-info"></i>
-                                Info
-                            </a>
-                        </li>
-                    </div>
-                    <li>
-                        <a href="restaurant_reservation?id=<?=$restaurant->getResId();?>" class="button">
-                            <i class="fa-regular fa-calendar"></i>
-                            Reservation
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-
-            <div class="restaurant-details">
-                <h1><?php echo $restaurant->getResName(); ?></h1>
-                <p><?php echo $restaurant->getResd(); ?></p>
-                <p><?php echo $restaurant->getResLocation(); ?></p>
-            </div>
+        <div>
+            <section>
+                <h1>Add restaurant</h1>
+                <form action="add_restaurant" method="POST">
+                    <?php if (isset($messages)){
+                        foreach ($messages as $message){
+                            echo '<span style="color: red;">' . $message . '</span>';
+                        }
+                    }
+                    ?>
+                    <input name="res_name" type="text" placeholder="Restaurant name">
+                    <input name="res_location" type="text" placeholder="Restaurant location">
+                    <input name="res_logo" type="text" placeholder="Restaurant logo">
+                    <input name="res_image" type="text" placeholder="Restaurant interior">
+                    <textarea name="res_d" rows="5" placeholder="Description"></textarea>
+                    <input name="res_rating" type="text" placeholder="Rating">
+                    <button type="submit">Add restaurant</button>
+                </form>
+            </section>
+            <img src="public/img/add_restaurant.png" alt="Opis obrazu"
         </div>
-</div>
-</div>
+    </main>
 </div>
 <div class="mobile">
     <div class="welcome">

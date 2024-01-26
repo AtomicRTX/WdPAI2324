@@ -7,7 +7,8 @@ if (!isset($_SESSION['user'])) {
 $userName = $_SESSION['user']['name'];
 $userSurname = $_SESSION['user']['surname'];
 $userEmail = $_SESSION['user']['email'];
-
+$userType = $_SESSION['user']['type'];
+$userID = $_SESSION['user']['id'];
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +18,13 @@ $userEmail = $_SESSION['user']['email'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/fc73b75636.js" crossorigin="anonymous"></script>
+    <script>
+        const startHour = <?= $restaurant->getResStart()->format('H'); ?>;
+        const endHour = <?= $restaurant->getResEnd()->format('H'); ?>;
+    </script>
+    <script type="text/javascript" src="./public/js/restaurantTime.js" defer></script>
     <link rel="stylesheet" type="text/css" href="public/css/restaurant_reservation.css">
-    <title>HOME PAGE</title>
+    <title>ReservEat</title>
 </head>
 
 <body>
@@ -29,15 +35,13 @@ $userEmail = $_SESSION['user']['email'];
             <p>ReservEat</p>
         </div>
         <ul>
-            <div class='chosen'>
-                <li>
-                    <a href="home_page" class="button">
-                        <i class="fa-solid fa-house"></i>
-                        Home
-                    </a>
-                </li>
-            </div>
             <li>
+                <a href="home_page" class="button">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+            </li>
+            <li class='chosen'>
                 <a href="restaurant_page" class="button">
                     <i class="fa-solid fa-utensils"></i>
                     Restaurants
@@ -49,14 +53,24 @@ $userEmail = $_SESSION['user']['email'];
                     My reservation
                 </a>
             </li>
+            <?php
+            if ($userType == 2) {
+                echo '<li>
+                            <a href="add_restaurant" class="button">
+                                <i class="fa-solid fa-plus"></i>
+                                Add restaurant
+                            </a>
+                        </li>';
+            }
+            ?>
             <li class="mp">
-                <a href="#" class="button">
+                <a href="profile_page" class="button">
                     <i class="fa-solid fa-user"></i>
                     My profile
                 </a>
             </li>
             <li class="so">
-                <a href="#" class="button">
+                <a href="logout" class="button">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     Sign out
                 </a>
@@ -100,37 +114,24 @@ $userEmail = $_SESSION['user']['email'];
             </nav>
 
             <div class="restaurant-details">
-                <label for="numberOfPeople">Liczba osób:</label>
-                <select id="numberOfPeople" name="selectedNumberOfPeople">
-                    <option value="2">2 osoby</option>
-                    <option value="4">4 osoby</option>
-                    <option value="6">6 osób</option>
-                </select>
-                <label for="datePicker">Wybierz datę:</label>
-                <input type="date" class="datePicker" name="selectedDate">
-                <label for="selectTime">Wybierz godzinę:</label>
-                <select id="selectTime" name="selectedTime">
-                    <option value="18:00">15:00</option>
-                    <option value="18:30">15:30</option>
-                    <option value="19:00">16:00</option>
-                    <option value="18:00">16:30</option>
-                    <option value="18:30">17:00</option>
-                    <option value="19:00">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="18:00">19:30</option>
-                    <option value="18:30">20:00</option>
-                    <option value="19:00">20:30</option>
-                    <option value="18:00">21:00</option>
-                    <option value="18:30">21:30</option>
-                    <option value="19:00">22:00</option>
-                </select>
-                <button class="reservation">Book a reservation</button>
+                <form action="restaurant_reservation?id=<?=$restaurant->getResId();?>" method="POST">
+                    <label for="numberOfPeople">Number of people :</label>
+                    <select id="numberOfPeople" name="selectedNumberOfPeople">
+                        <option value="2">2 osoby</option>
+                        <option value="4">4 osoby</option>
+                        <option value="6">6 osób</option>
+                    </select>
+                    <label for="datePicker">Select a date(if not select, choose current date):</label>
+                    <input name="selectedDate" type="date" class="datePicker">
+                    <label for="selectTime">Select a time:</label>
+                    <select id="selectTime" name="selectedTime"></select>
+                    <div style="text-align: center;">
+                        <span style="color: red;"><?php echo $messages; ?></span>
+                    </div>
+                    <button class="reservation" type="submit">Book a reservation</button>
+                </form>
             </div>
         </div>
-</div>
-</div>
 </div>
 <div class="mobile">
     <div class="welcome">

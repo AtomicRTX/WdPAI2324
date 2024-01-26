@@ -18,11 +18,12 @@ $userType = $_SESSION['user']['type'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/fc73b75636.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="public/css/restaurant_details.css">
+    <link rel="stylesheet" type="text/css" href="public/css/home_page.css">
     <title>ReservEat</title>
 </head>
 
 <body>
+
 <div class="desktop">
     <nav>
         <div class="logo">
@@ -30,13 +31,13 @@ $userType = $_SESSION['user']['type'];
             <p>ReservEat</p>
         </div>
         <ul>
-            <li>
+            <li class='chosen'>
                 <a href="home_page" class="button">
                     <i class="fa-solid fa-house"></i>
                     Home
                 </a>
             </li>
-            <li class='chosen'>
+            <li>
                 <a href="restaurant_page" class="button">
                     <i class="fa-solid fa-utensils"></i>
                     Restaurants
@@ -70,52 +71,23 @@ $userType = $_SESSION['user']['type'];
                     Sign out
                 </a>
             </li>
-            <div class="userID">
+            <li class="userID">
                 <?php
                 echo $userName.' '.$userSurname;
                 ?>
                 <p><?php echo $userEmail; ?></p>
-            </div>
+            </li>
         </ul>
     </nav>
     <main>
-        <header style="background-image: url('<?= $restaurant->getResImage(); ?>'); background-size: cover;">
-                <a href="home_page">
-                    <i class="fa-solid fa-circle-arrow-left"></i>
-                </a>
-                <form class='search_bar'>
-                    <input name="Search by name" type="text" placeholder="Search by name">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </form>
+        <header>
+            <form class='search_bar'>
+                <input name="Search by name" type="text" placeholder="Search by name">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </form>
         </header>
-        <div class="panel">
-            <nav>
-                <ul>
-                    <div class='chosen'>
-                        <li>
-                            <a href="restaurant_details?id=<?=$restaurant->getResId();?>" class="button">
-                                <i class="fa-solid fa-circle-info"></i>
-                                Info
-                            </a>
-                        </li>
-                    </div>
-                    <li>
-                        <a href="restaurant_reservation?id=<?=$restaurant->getResId();?>" class="button">
-                            <i class="fa-regular fa-calendar"></i>
-                            Reservation
-                        </a>
-                    </li>
-                </ul>
-            </nav>
 
-            <div class="restaurant-details">
-                <h1><?php echo $restaurant->getResName(); ?></h1>
-                <p><?php echo $restaurant->getResd(); ?></p>
-                <p><?php echo $restaurant->getResLocation(); ?></p>
-            </div>
-        </div>
-</div>
-</div>
+    </main>
 </div>
 <div class="mobile">
     <div class="welcome">

@@ -2,6 +2,33 @@
 
 class User
 {
+    public function getType() : string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): void
+    {
+        $this->type = $type;
+    }
+    private $user_id;
+    private $name;
+    private $surname;
+    private $email;
+    private $password;
+    private $phone;
+    private $type;
+
+    public function __construct(string $name, string  $surname, string $email, string  $password, int $phone, int $type)
+    {
+        $this->email = $email;
+        $this->password = $password;
+        $this->name = $name;
+        $this->surname = $surname;
+        $this->phone = $phone;
+        $this->type = $type;
+    }
+
     public function getUserId()
     {
         return $this->user_id;
@@ -10,22 +37,6 @@ class User
     public function setUserId($user_id): void
     {
         $this->user_id = $user_id;
-    }
-
-    private $user_id;
-    private $name;
-    private $surname;
-    private $email;
-    private $password;
-    private $phone;
-
-    public function __construct(string $name, string  $surname, string $email, string  $password, int $phone)
-    {
-        $this->email = $email;
-        $this->password = $password;
-        $this->name = $name;
-        $this->surname = $surname;
-        $this->phone = $phone;
     }
 
     public function getEmail(): string

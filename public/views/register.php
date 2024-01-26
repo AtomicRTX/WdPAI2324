@@ -14,7 +14,7 @@ if(isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
     <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
     <script type="text/javascript" src="./public/js/detector.js" defer></script>
     <link rel="stylesheet" type="text/css" href="public/css/register.css">
-    <title>REGISTER PAGE</title>
+    <title>ReservEat</title>
 </head>
 
 <body>
