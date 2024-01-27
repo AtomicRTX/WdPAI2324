@@ -57,23 +57,26 @@ class RestaurantController extends AppController
         $restaurant = $this->restaurantRepository->getRestaurantByID($restaurantId);
         $this->render('restaurant_details', ['restaurant' => $restaurant]);
     }
-    public function restaurant_reservation(){
-        $restaurantId = $_GET['id'];
 
+    public function restaurant_reservation(){
+
+        $restaurantId = $_GET['id'];
         $restaurant = $this->restaurantRepository->getRestaurantByID($restaurantId);
+
         if(!$this->isPost()) {
-            $this->render('restaurant_reservation', ['restaurant' => $restaurant, 'messages' => '']);
+            return $this->render('restaurant_reservation', ['restaurant' => $restaurant, 'messages' => '']);
         }
 
         $userEmail = $_SESSION['user']['email'];
-        $date = new DateTime($_POST["selectedDate"]);
+        $date = new DateTime($_POST['selectedDate']);
         $np = $_POST['selectedNumberOfPeople'];
         $time = new DateTime($_POST['selectedTime']);
         $dateP = $date->format('Y-m-d');
         $timeP = $time->format('H:i');
 
         $result = $this->restaurantRepository->reservation($userEmail, $restaurantId, $dateP, $timeP, $np);
-        $this->render('restaurant_reservation', ['restaurant' => $restaurant, 'messages' => $result]);
+        return $this->render('restaurant_reservation', ['restaurant' => $restaurant, 'messages' => $result]);
     }
+
 
 }

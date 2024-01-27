@@ -141,10 +141,10 @@ header > .search_bar > i {
     transform: translateY(-50%);
 }
 
-
 main > p{
     font-size: 2em;
     margin-left: 1em;
+    margin-bottom: 1em;
 }
 
 
@@ -155,19 +155,21 @@ section{
     width: 80%;
     line-height: 2em;
 
+    overflow-y: auto;
+    max-height: 66vh;
 }
 
-.restaurant{
+.reservation{
     display: flex;
     padding: 0.5em 0;
     flex-direction: row;
     background-color: white;
     border-radius: 1em;
     margin-bottom: 1em;
-    line-height: 3em;
+    line-height: 1.8em;
 }
 
-.restaurant > img {
+.reservation > img {
     align-self: center;
     margin: 0 1em;
     height: 25%;
@@ -175,50 +177,46 @@ section{
     object-fit: fill;
 }
 
-.restaurant > .info{
+.reservation > .info{
     display: flex;
     justify-content: space-between;
     align-self: center;
     flex: 1;
 }
 
-.restaurant > .info > p{
+.reservation > .info > p{
     margin-right: 1em;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 /*##########################################################################################################################################*/
 
 
-main > .categories_name{
-    margin-left: 1em;
-    font-size: 2em;
-}
 
-main > .categories{
-    margin-left: 3em;
-    margin-bottom: 1em;
-    display: flex;
-    align-items: center;
-    text-align: center;
 
-    flex-shrink: 0;
-    overflow-x: auto;
-    max-height: 66vh;
-}
 
-main > .categories a{
-    margin: 1em 1em;
-    align-items: center;
-    text-align: center;
-}
 
-main > .categories .cat {
-    text-decoration: none;
-    color: inherit;
-}
 
-main > .categories .cat.active{
-    font-weight: bold;
-}
+
+
+
+

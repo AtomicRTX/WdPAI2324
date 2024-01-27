@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
+if(isset($_SESSION['logged']) && $_SESSION['logged']){
     header("Location: home_page");
     exit();
 }
@@ -12,8 +12,8 @@ if(isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="./public/js/detector.js" defer></script>
-    <link rel="stylesheet" type="text/css" href="public/css/register.css">
+    <script type="text/javascript" src="/public/js/detector.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="/public/css/register.css">
     <title>ReservEat</title>
 </head>
 
@@ -21,11 +21,11 @@ if(isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
     <div class="container">
         <div class="panel">
             <div class="logo">
-                <img src="public/img/logo.svg">
+                <img src="/public/img/logo.svg" alt="LOGO">
                 <p>Sign up to ReservEat</p>
             </div>
             <div class="register-container">
-                <form action="register" method="POST">
+                <form action="/register" method="POST">
                     <input name="name" type="text" placeholder="Name">
                     <input name="surname" type="text" placeholder="Surname">
                     <input name="email" type="text" placeholder="E-mail">
@@ -48,7 +48,7 @@ if(isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
                         <p>You already have an account ?</p>
                     </div>
                 </form>
-                <a href="login">
+                <a href="/login">
                     <button class="In">Sign in</button>
                 </a>
             </div>

@@ -97,6 +97,51 @@ class UserRepository extends Repository
                 1,
             ]);
 
-        }
+    }
+    public function updateUser(string $userEmail, User $user)
+    {
+        $pdo = $this->database->connect();
 
+        $stmtUserId = $pdo->prepare('
+        SELECT u.user_id
+        FROM public.users u
+        WHERE u.email = ?
+    ');
+
+        $stmtUserId->execute([$userEmail]);
+        $userId = $stmtUserId->fetchColumn();
+
+        $stmtUserDId = $pdo->prepare('
+        SELECT u.detail_id
+        FROM public.users u
+        WHERE u.email = ?
+    ');
+
+        $stmtUserDId->execute([$userEmail]);
+        $userDId = $stmtUserDId->fetchColumn();
+
+        $stmtUserDetail = $pdo->prepare('
+        UPDATE public.user_detail
+        SET name = ?, surname = ?, phone = ?
+        WHERE detail_id = ?
+    ');
+
+        $stmtUserDetail->execute([
+            $user->getName(),
+            $user->getSurname(),
+            $user->getPhone(),
+            $userDId,
+        ]);
+
+        $stmtUsers = $pdo->prepare('
+        UPDATE public.users
+        SET email = ?
+        WHERE user_id = ?
+    ');
+
+        $stmtUsers->execute([
+            $user->getEmail(),
+            $userId,
+        ]);
+    }
 }

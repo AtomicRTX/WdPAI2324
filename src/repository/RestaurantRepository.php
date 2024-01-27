@@ -157,6 +157,29 @@ class RestaurantRepository extends Repository
         return $restaurant;
     }
 
+    public function getRestaurantByName(string $searchString)
+    {
+        $searchString = '%' . strtolower($searchString) . '%';
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT 
+                r.*,
+                wh.start_hour,
+                wh.end_hour
+            FROM 
+                public.restaurants r
+            LEFT JOIN 
+                public.work_hours wh ON r.res_id = wh.res_id
+            WHERE 
+                LOWER(r.res_name) = :search;
+        ');
+
+        $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Dodanie restauracji do bazy danych
@@ -182,29 +205,24 @@ class RestaurantRepository extends Repository
 
     public function reservation(string $userEmail, int $restaurantID, string $date, string $time, string $np)
     {
+        $pdo = $this->database->connect();
+
         try {
+            $pdo->beginTransaction();
 
-        $this->database->connect()->beginTransaction();
+            $stmt = $pdo->prepare('SELECT make_reservation_by_email(?, ?, ?, ?, ?)');
+            $stmt->execute([$userEmail, $restaurantID, $date, $time, $np]);
 
-        $stmt = $this->database->connect()->prepare('
-            SELECT make_reservation_by_email(?, ?, ?, ?, ?)
-        ');
+            $result = $stmt->fetchColumn();
 
-        $stmt->execute([
-            $userEmail,
-            $restaurantID,
-            $date,
-            $time,
-            $np
-        ]);
+            $pdo->commit();
 
-        $result = $stmt->fetchColumn();
-
-        return $result;
+            return $result;
         } catch (Exception $e) {
-            $this->database->connect()->rollBack();
-            return 'An error occurred during the reservation. Please try again.';
+            if ($pdo->inTransaction()) {
+                $pdo->rollBack();
+            }
+            throw $e;
         }
     }
-
 }

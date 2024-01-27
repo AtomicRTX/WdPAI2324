@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
+if(isset($_SESSION['logged']) && ($_SESSION['logged'])){
     header("Location: home_page");
     exit();
 }
@@ -13,6 +13,7 @@ if(isset($_SESSION['logged']) && ($_SESSION['logged'] == true)){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="public/css/login.css">
+
     <title>ReservEat</title>
 </head>
 

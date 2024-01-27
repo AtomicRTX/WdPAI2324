@@ -2,6 +2,35 @@
 
 class Restaurant
 {
+    public function getResId(): ?int
+    {
+        return $this->res_id;
+    }
+
+    public function setResId(?int $res_id): void
+    {
+        $this->res_id = $res_id;
+    }
+
+    public function getResStart(): DateTime
+    {
+        return $this->res_start;
+    }
+
+    public function setResStart(DateTime $res_start): void
+    {
+        $this->res_start = $res_start;
+    }
+
+    public function getResEnd(): DateTime
+    {
+        return $this->res_end;
+    }
+
+    public function setResEnd(DateTime $res_end): void
+    {
+        $this->res_end = $res_end;
+    }
     private $res_id;
     private $res_name;
     private $res_location;

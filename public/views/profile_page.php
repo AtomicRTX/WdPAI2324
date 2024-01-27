@@ -19,7 +19,8 @@ $userType = $_SESSION['user']['type'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/fc73b75636.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="public/css/profile_page.css">
+    <script type="text/javascript" src="/public/js/logo.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="/public/css/profile_page.css">
     <title>ReservEat</title>
 </head>
 
@@ -28,24 +29,24 @@ $userType = $_SESSION['user']['type'];
     <div class="desktop">
         <nav>
             <div class="logo">
-                <img src="public/img/logo.svg">
+                <img src="/public/img/logo.svg">
                 <p>ReservEat</p>
             </div>
             <ul>
                 <li>
-                    <a href="home_page" class="button">
+                    <a href="/home_page" class="button">
                         <i class="fa-solid fa-house"></i>
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="restaurant_page" class="button">
+                    <a href="/restaurant_page" class="button">
                         <i class="fa-solid fa-utensils"></i>
                         Restaurants
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="button">
+                    <a href="/my_reservation" class="button">
                         <i class="fa-regular fa-calendar"></i>
                         My reservation
                     </a>
@@ -53,7 +54,7 @@ $userType = $_SESSION['user']['type'];
                 <?php
                 if ($userType == 2) {
                     echo '<li>
-                            <a href="add_restaurant" class="button">
+                            <a href="/add_restaurant" class="button">
                                 <i class="fa-solid fa-plus"></i>
                                 Add restaurant
                             </a>
@@ -61,13 +62,13 @@ $userType = $_SESSION['user']['type'];
                 }
                 ?>
                 <li class='chosen'>
-                    <a href="profile_page" class="button">
+                    <a href="/profile_page" class="button">
                         <i class="fa-solid fa-user"></i>
                         My profile
                     </a>
                 </li>
                 <li>
-                    <a href="logout" class="button">
+                    <a href="/logout" class="button">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         Sign out
                     </a>
@@ -98,7 +99,7 @@ $userType = $_SESSION['user']['type'];
                     <div class="title_basic">
                         Basic information
                     </div>
-                    <a href="edit" class="edit">
+                    <a href="/edit" class="edit">
                         Edit
                     </a>
                 </div>
@@ -119,56 +120,10 @@ $userType = $_SESSION['user']['type'];
                         </div>
                     </div>
                     <div class="photo">
-                        <img src="public/img/addrestaurant.svg">
+                        <img src="public/img/addrestaurant.svg" alt="PHOTO">
                     </div>
                 </div>
             </div>
         </main>
-    </div>
-    <div class="mobile">
-        <div class="welcome">
-            <p>Hello Dawid!</p>
-            Find restaurant for any occasion
-        </div>
-        <div class="search_bar">
-            <form>
-                <input name="Search by name" type="text" placeholder="Search by name">
-                <img src="public/img/magnifier.svg">
-            </form>
-        </div>
-        <div class="categories_name">Categories</div>
-        <div class="categories">
-            <a href="Pizza" class="cat">
-                <img src="public/img/pizza.svg" alt="Opis zdjecia">
-                <p>Pizza</p>
-              </a>
-        </div>
-        <div class="explore_name">Explore</div>
-        <div class="explore">
-            <a href="best" class="best">
-                <img src="public/img/best_rated.svg" alt="Opis zdjecia">
-                <p>Best rated</p>
-            </a>
-            <a href="discount" class="discount">
-                <img src="public/img/discount.svg" alt="Opis zdjecia">
-                <p>Discounts</p>
-            </a>
-        </div>
-        <div class="bottom_panel">
-            <div class="menu_bar">
-                <a href="home" class="home">
-                    <img src="public/img/home.svg">
-                    <p>Home</p>
-                </a>
-                <a href="My reservation" class="reservation">
-                    <img src="public/img/my_reservation.svg">
-                    <p>My reservation</p>
-                </a>
-                <a href="My profile" class="profile">
-                    <img src="public/img/profile.svg">
-                    <p>My profile</p>
-                </a>
-            </div>
-        </div>
     </div>
 </body>

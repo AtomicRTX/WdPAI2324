@@ -9,6 +9,11 @@ require_once __DIR__.'/../repository/UserRepository.php';
 
 class SecurityController extends AppController
 {
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Logowanie użytkownika do bazy danych
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function login()
     {
         $userRepository = new UserRepository();
@@ -52,6 +57,12 @@ class SecurityController extends AppController
         header("Location: {$url}/home_page");
     }
 
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //Rejestracja użytkownika
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public function register()
     {
         $userRepository = new UserRepository();
@@ -81,12 +92,43 @@ class SecurityController extends AppController
         }
 
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        $user = new User($name, $surname, $email, $hashedPassword, $phone, $type);
-
-        //$user = new User($name, $surname, $email, $password, $phone);
+        $user = new User($name, $surname, $email, $hashedPassword, $phone, 1);
 
         $userRepository->addUser($user);
 
         return $this->render('login', ['messages' => ['You\'ve been succesfully registrated!']]);
+    }
+    public function edit(){
+        $userRepository = new UserRepository();
+
+        if (!$this->isPost()) {
+            return $this->render('edit');
+        }
+
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+        $email = $_POST['email'];
+        $phone = $_POST['phoneNumber'];
+
+        $user = $userRepository->getUser($email);
+        $userEmail = $user->getEmail();
+        $user->setName($name);
+        $user->setSurname($surname);
+        $user->setPhone($phone);
+        $user->setEmail($email);
+
+        $userRepository->updateUser($userEmail, $user);
+
+        $updatedUser = $userRepository->getUser($email);
+        $_SESSION['user'] = [
+            'id' => $updatedUser->getUserId(),
+            'email' => $updatedUser->getEmail(),
+            'name' => $updatedUser->getName(),
+            'surname' => $updatedUser->getSurname(),
+            'phone' => $updatedUser->getPhone(),
+            'type' => $updatedUser->getType()
+        ];
+        return $this->render('profile_page');
+
     }
 }
