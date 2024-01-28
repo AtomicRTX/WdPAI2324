@@ -82,12 +82,6 @@ $userType = $_SESSION['user']['type'];
             </ul>
         </nav>
         <main>
-            <header>
-                <form class='search_bar'>
-                    <input name="Search by name" type="text" placeholder="Search by name">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </form>
-            </header>
             <div class="profile">
                 <div class="my">
                     My profile

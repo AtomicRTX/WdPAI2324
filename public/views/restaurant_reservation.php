@@ -89,10 +89,6 @@ $userID = $_SESSION['user']['id'];
                 <a href="/home_page">
                     <i class="fa-solid fa-circle-arrow-left"></i>
                 </a>
-                <form class='search_bar'>
-                    <input name="Search by name" type="text" placeholder="Search by name">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </form>
             </header>
             <div class="panel">
                 <nav>

@@ -159,7 +159,7 @@ class RestaurantRepository extends Repository
 
     public function getRestaurantByName(string $searchString)
     {
-        $searchString = '%' . strtolower($searchString) . '%';
+        $searchString = '%'.strtolower($searchString).'%';
 
         $stmt = $this->database->connect()->prepare('
             SELECT 
@@ -171,7 +171,7 @@ class RestaurantRepository extends Repository
             LEFT JOIN 
                 public.work_hours wh ON r.res_id = wh.res_id
             WHERE 
-                LOWER(r.res_name) = :search;
+                LOWER(r.res_name) LIKE :search;
         ');
 
         $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);

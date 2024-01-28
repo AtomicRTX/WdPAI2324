@@ -18,6 +18,7 @@ $userType = $_SESSION['user']['type'];
     <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/fc73b75636.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/public/js/logo.js" defer></script>
+    <script type="text/javascript" src="./public/js/search.js" defer></script>
     <link rel="stylesheet" type="text/css" href="/public/css/restaurant_page.css">
     <title>ReservEat</title>
 </head>
@@ -80,13 +81,13 @@ $userType = $_SESSION['user']['type'];
         </nav>
         <main>
             <header>
-                <form class='search_bar'>
+                <div class='search_bar'>
                     <input name="Search by name" type="text" placeholder="Search by name">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                </form>
+                </div>
             </header>
             <p>Restaurants available</p>
-            <section>
+            <section class="restaurants">
                 <?php if(isset($restaurants))
                     foreach ($restaurants as $restaurant): ?>
                         <a href="/restaurant_details?id=<?=$restaurant->getResId();?>">
@@ -97,7 +98,7 @@ $userType = $_SESSION['user']['type'];
                                         <p class="n"><?= $restaurant->getResName(); ?></p>
                                         <p class="l"><?= $restaurant->getResLocation(); ?></p>
                                     </div>
-                                    <p>
+                                    <p class="r">
                                         Rating according to users : <?= $restaurant->getResRating(); ?>stars</p>
                                 </div>
                             </div>

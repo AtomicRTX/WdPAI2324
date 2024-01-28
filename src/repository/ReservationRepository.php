@@ -57,6 +57,35 @@ ORDER BY
         return $result;
     }
 
+    public function getReservationByName(string $searchString)
+    {
+        $searchString = '%'.strtolower($searchString).'%';
+
+        $stmt = $this->database->connect()->prepare('
+            SELECT 
+                r."user_id",
+                r."res_id",
+                res."res_name",
+                res."res_logo",
+                r."date",
+                r."hour",
+                r."number_people"
+            FROM 
+                "public"."reservation" r
+            JOIN 
+                "public"."restaurants" res ON r."res_id" = res."res_id"
+            LEFT JOIN 
+                "public"."work_hours" wh ON r."res_id" = wh."res_id"
+            WHERE 
+                LOWER(res."res_name") LIKE :search;
+        ');
+
+        $stmt->bindParam(':search', $searchString, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function deleteReservation(int $user_id, int $res_id, DateTime $date, DateTime $hour, int $numberPeople): void
     {
         $stmt = $this->database->connect()->prepare('

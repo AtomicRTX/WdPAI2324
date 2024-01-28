@@ -10,7 +10,6 @@ $userEmail = $_SESSION['user']['email'];
 $userType = $_SESSION['user']['type'];
 ?>
 
-
 <!DOCTYPE html>
 
 <head>
@@ -19,6 +18,7 @@ $userType = $_SESSION['user']['type'];
     <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/fc73b75636.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/public/js/logo.js" defer></script>
+    <script type="text/javascript" src="./public/js/search_rv.js" defer></script>
     <link rel="stylesheet" type="text/css" href="/public/css/my_reservation.css">
     <title>ReservEat</title>
 </head>
@@ -81,13 +81,13 @@ $userType = $_SESSION['user']['type'];
     </nav>
     <main>
         <header>
-            <form class='search_bar'>
+            <div class='search_bar'>
                 <input name="Search by name" type="text" placeholder="Search by name">
                 <i class="fa-solid fa-magnifying-glass"></i>
-            </form>
+            </div>
         </header>
         <p>My reservation</p>
-        <section>
+        <section class="reservations">
             <?php if(isset($reservations))
                 foreach ($reservations as $reservation): ?>
                     <a>
@@ -95,9 +95,9 @@ $userType = $_SESSION['user']['type'];
                             <img src="<?= $reservation->getResLogo(); ?>" alt="LOGO RESTAURACJI">
                             <div class="info">
                                 <div class="infoB">
-                                    <p><?= $reservation->getResName(); ?></p>
-                                    <p>Reservation date : <?= $reservation->getDate()->format('d/m/y'); ?> <?= $reservation->getHour()->format('H:i:s') ?></p>
-                                    <p>Number of people : <?= $reservation->getNumberPeople(); ?></p>
+                                    <p class="n"><?= $reservation->getResName(); ?></p>
+                                    <p class="d">Reservation date : <?= $reservation->getDate()->format('d/m/y'); ?> <?= $reservation->getHour()->format('H:i:s') ?></p>
+                                    <p class="p">Number of people : <?= $reservation->getNumberPeople(); ?></p>
                                 </div>
                                 <button class="cancel-btn">Cancel reservations</button>
                             </div>
@@ -108,3 +108,19 @@ $userType = $_SESSION['user']['type'];
     </main>
 </div>
 </body>
+
+<template id="reservation_template">
+    <a>
+        <div class="reservation">
+            <img src="" alt="LOGO RESTAURACJI">
+            <div class="info">
+                <div class="infoB">
+                    <p class="n">Name</p>
+                    <p class="d">Reservation date : Data hour</p>
+                    <p class="p">Number of people : 0</p>
+                </div>
+                <button class="cancel-btn">Cancel reservations</button>
+            </div>
+        </div>
+    </a>
+</template>

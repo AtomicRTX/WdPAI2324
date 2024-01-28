@@ -19,6 +19,7 @@ $userType = $_SESSION['user']['type'];
     <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/fc73b75636.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/public/js/logo.js" defer></script>
+    <script type="text/javascript" src="./public/js/search.js" defer></script>
     <link rel="stylesheet" type="text/css" href="/public/css/home_page.css">
     <title>ReservEat</title>
 </head>
@@ -82,7 +83,7 @@ $userType = $_SESSION['user']['type'];
         <main>
             <header>
                 <div class='search_bar'>
-                    <input placeholder="searchByName" name="Search by name" type="text">
+                    <input name="Search by name" type="text" placeholder="Search by name">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </header>
@@ -132,22 +133,40 @@ $userType = $_SESSION['user']['type'];
             <p>Top rated restaurants</p>
             <section class="restaurants">
                 <?php if(isset($restaurants))
-                foreach ($restaurants as $restaurant): ?>
-                    <a href="/restaurant_details?id=<?=$restaurant->getResId();?>">
-                        <div class="restaurant">
-                            <img src="<?= $restaurant->getResLogo(); ?>" alt="LOGO RESTAURANT">
-                            <div class="info">
-                                <div class="infoB">
-                                    <p><?= $restaurant->getResName(); ?></p>
-                                    <p><?= $restaurant->getResLocation(); ?></p>
+                    foreach ($restaurants as $restaurant): ?>
+                        <a href="/restaurant_details?id=<?=$restaurant->getResId();?>">
+                            <div class="restaurant">
+                                <img src="<?= $restaurant->getResLogo(); ?>" alt="LOGO RESTAURACJI">
+                                <div class="info">
+                                    <div class="infoB">
+                                        <p class="n"><?= $restaurant->getResName(); ?></p>
+                                        <p class="l"><?= $restaurant->getResLocation(); ?></p>
+                                    </div>
+                                    <p class="r">
+                                        Rating according to users : <?= $restaurant->getResRating(); ?>stars</p>
                                 </div>
-                                <p>Rating according to users : <?= $restaurant->getResRating(); ?> stars</p>
                             </div>
-                        </div>
-                    </a>
-                <?php endforeach; ?>
+                        </a>
+                    <?php endforeach; ?>
 
             </section>
         </main>
     </div>
 </body>
+
+
+<template id="restaurant_template">
+    <a href="">
+        <div class="restaurant">
+            <img src="" alt="LOGO RESTAURACJI">
+            <div class="info">
+                <div class="infoB">
+                    <p class="n">name</p>
+                    <p class="l">location</p>
+                </div>
+                <p class="r">
+                    Rating according to users : 0 stars</p>
+            </div>
+        </div>
+    </a>
+</template>

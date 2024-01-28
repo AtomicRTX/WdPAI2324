@@ -3,5 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     reservation.addEventListener('click', function() {
         window.location.href = '/cancel_reservation';
+
     });
 });

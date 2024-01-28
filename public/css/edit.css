@@ -1,147 +1,147 @@
 * {
-margin: 0px;
-padding: 0px;
-font-family: 'Actor', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Actor', sans-serif;
 }
 
 body {
-font-size: 16px;
-background-color: #F3F3F3;
+    font-size: 16px;
+    background-color: #F3F3F3;
 }
 
 .mobile{
-display: none;
+    display: none;
 }
 
 .desktop {
-display: flex;
-align-items: center;
-justify-content: flex-start;
-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
 }
 
 nav{
-width: 290px;
-height: 100%;
-background: var(--White, #FFF);
+    width: 290px;
+    height: 100%;
+    background: var(--White, #FFF);
 
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 main{
-width: calc(100% - 290px);
-display: flex;
-flex-direction: column;
-height: 100vh;
+    width: calc(100% - 290px);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 nav > .logo{
-display: flex;
-flex-direction: row;
-text-align: center;
-align-items: center;
-margin: 1em 1em;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    margin: 1em 1em;
 }
 
 nav > .logo img{
-height: 10vh;
-transform: scale(0.7);
+    height: 10vh;
+    transform: scale(0.7);
 }
 
 nav > .logo p{
-color: var(--fuenteClaro, #363D4E);
-font-size: 2em;
+    color: var(--fuenteClaro, #363D4E);
+    font-size: 2em;
 }
 
 a{
-text-decoration: none;
-display: inline-block;
-line-height: 2em;
-font-size: 1.25em;
-color: #363D4E;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 2em;
+    font-size: 1.25em;
+    color: #363D4E;
 }
 
 li i {
-font-size: 1.25em;
+    font-size: 1.25em;
 }
 
 .button{
-margin-left: 1.5em;
-text-align: left;
-letter-spacing: 1px;
-padding: 0.2em;
-color: #363D4E;
-width: 70%;
+    margin-left: 1.5em;
+    text-align: left;
+    letter-spacing: 1px;
+    padding: 0.2em;
+    color: #363D4E;
+    width: 70%;
 }
 
 ul{
-list-style-type: none;
-height: 100%;
-position: relative;
+    list-style-type: none;
+    height: 100%;
+    position: relative;
 }
 
 
 .chosen{
-line-height: 2em;
-border-style: solid;
-border-color: #52b6e9;
-background-color: #52b6e9;
+    line-height: 2em;
+    border-style: solid;
+    border-color: #52b6e9;
+    background-color: #52b6e9;
 }
 
 li:nth-last-child(3) {
-position: absolute;
-bottom: 7em;
-width: 100%;
+    position: absolute;
+    bottom: 7em;
+    width: 100%;
 }
 
 li:nth-last-child(2) {
-position: absolute;
-bottom: 4em;
-width: 100%;
+    position: absolute;
+    bottom: 4em;
+    width: 100%;
 }
 
 
 .userID {
-position: absolute;
-left: 2em;
-bottom: 1em;
+    position: absolute;
+    left: 2em;
+    bottom: 1em;
 
-font-size: 0.8em;
-margin-left: 0.5em;
-text-align: left;
-padding: 0.2em;
-color: #6c7383;
-width: 50%;
+    font-size: 0.8em;
+    margin-left: 0.5em;
+    text-align: left;
+    padding: 0.2em;
+    color: #6c7383;
+    width: 50%;
 }
 /*##########################################################################################################################################*/
 
 header {
-display: flex;
-justify-content: flex-end;
-padding: 1em 2em;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em 2em;
 }
 
 header > .search_bar{
-position: relative;
-margin: 0 1em;
+    position: relative;
+    margin: 0 1em;
 }
 
 header > .search_bar > input{
-border-radius: 1em;
-background-color: #FFFFFF;
-border: #FFFFFF;
-width: 25em;
-font-size: 1em;
-padding: 0.7em;
+    border-radius: 1em;
+    background-color: #FFFFFF;
+    border: #FFFFFF;
+    width: 25em;
+    font-size: 1em;
+    padding: 0.7em;
 }
 
 header > .search_bar > i {
-position: absolute;
-top: 50%;
-right: 1em;
-transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    transform: translateY(-50%);
 }
 
 main > .profile {

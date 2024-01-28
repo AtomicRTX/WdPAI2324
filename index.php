@@ -9,6 +9,10 @@ Router::get('', 'DefaultController');
 Router::get('home_page', 'RestaurantController');
 Router::get('profile_page', 'DefaultController');
 Router::get('restaurant_page', 'RestaurantController');
+
+Router::post('search', 'RestaurantController');
+Router::post('search_rv', 'ReservationController');
+
 Router::get('my_reservation', 'ReservationController');
 Router::get('cancel_reservation', 'ReservationController');
 
