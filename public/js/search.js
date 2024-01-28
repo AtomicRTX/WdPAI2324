@@ -45,7 +45,7 @@ function createRestaurant(restaurant){
     location.innerHTML = restaurant.res_location;
 
     const rating = clone.querySelector(".r");
-    rating.innerHTML = restaurant.res_rating;
+    rating.innerHTML = `<i class="fa-regular fa-thumbs-up">${restaurant.res_like}</i>`;
 
     restaurantContainer.appendChild(clone);
 }

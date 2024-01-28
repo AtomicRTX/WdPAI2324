@@ -9,10 +9,6 @@ body {
     background-color: #F3F3F3;
 }
 
-.mobile{
-    display: none;
-}
-
 .desktop {
     display: flex;
     align-items: center;
@@ -148,6 +144,38 @@ main > p{
 }
 
 
+main > .categories_name{
+    margin-left: 1em;
+    font-size: 2em;
+}
+
+main > .categories{
+    margin-left: 3em;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    flex-shrink: 0;
+    overflow-x: auto;
+    max-height: 66vh;
+}
+
+main > .categories a{
+    margin: 1em 1em;
+    align-items: center;
+    text-align: center;
+}
+
+main > .categories .cat {
+    text-decoration: none;
+    color: inherit;
+}
+
+main > .categories .cat.active{
+    font-weight: bold;
+}
+
 section{
     display: flex;
     flex-direction: column;
@@ -186,39 +214,13 @@ section{
     margin-right: 1em;
 }
 
+.restaurant > .info > .r > i{
+    margin-right: 1em;
+    font-size: 1em;
+}
+
+
 
 
 /*##########################################################################################################################################*/
 
-
-main > .categories_name{
-    margin-left: 1em;
-    font-size: 2em;
-}
-
-main > .categories{
-    margin-left: 3em;
-    margin-bottom: 1em;
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-    flex-shrink: 0;
-    overflow-x: auto;
-    max-height: 66vh;
-}
-
-main > .categories a{
-    margin: 1em 1em;
-    align-items: center;
-    text-align: center;
-}
-
-main > .categories .cat {
-    text-decoration: none;
-    color: inherit;
-}
-
-main > .categories .cat.active{
-    font-weight: bold;
-}

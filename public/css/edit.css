@@ -9,10 +9,6 @@ body {
     background-color: #F3F3F3;
 }
 
-.mobile{
-    display: none;
-}
-
 .desktop {
     display: flex;
     align-items: center;
@@ -35,6 +31,7 @@ main{
     display: flex;
     flex-direction: column;
     height: 100vh;
+    flex: 1;
 }
 
 nav > .logo{
@@ -42,6 +39,7 @@ nav > .logo{
     flex-direction: row;
     text-align: center;
     align-items: center;
+    justify-content: left;
     margin: 1em 1em;
 }
 
@@ -123,29 +121,8 @@ header {
     padding: 1em 2em;
 }
 
-header > .search_bar{
-    position: relative;
-    margin: 0 1em;
-}
-
-header > .search_bar > input{
-    border-radius: 1em;
-    background-color: #FFFFFF;
-    border: #FFFFFF;
-    width: 25em;
-    font-size: 1em;
-    padding: 0.7em;
-}
-
-header > .search_bar > i {
-    position: absolute;
-    top: 50%;
-    right: 1em;
-    transform: translateY(-50%);
-}
-
 main > .profile {
-margin: 1em 2em 1em;
+margin: 5em 2em 1em;
 }
 
 main > .profile .my{

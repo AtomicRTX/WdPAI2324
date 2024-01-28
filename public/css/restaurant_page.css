@@ -9,10 +9,6 @@ body {
     background-color: #F3F3F3;
 }
 
-.mobile{
-    display: none;
-}
-
 .desktop {
     display: flex;
     align-items: center;
@@ -188,6 +184,10 @@ section{
     margin-right: 1em;
 }
 
+.restaurant > .info > .r > i{
+    margin-right: 1em;
+    font-size: 1em;
+}
 
 
 

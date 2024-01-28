@@ -36,7 +36,7 @@ class RestaurantRepository extends Repository
                 $restaurant['res_logo'],
                 $restaurant['res_image'],
                 $restaurant['res_d'],
-                $restaurant['res_rating'],
+                $restaurant['res_like'],
                 $restaurant['res_id'],
                 $startHour,
                 $endHour
@@ -57,7 +57,7 @@ class RestaurantRepository extends Repository
         $result = [];
         $stmt = $this->database->connect()->prepare('
             SELECT * FROM public.restaurants
-            ORDER BY res_rating DESC
+            ORDER BY res_like DESC
             LIMIT 3;
         ');
         $stmt->execute();
@@ -70,7 +70,7 @@ class RestaurantRepository extends Repository
                 $restaurant['res_logo'],
                 $restaurant['res_image'],
                 $restaurant['res_d'],
-                $restaurant['res_rating'],
+                $restaurant['res_like'],
                 $restaurant['res_id']
             );
         }
@@ -108,7 +108,7 @@ class RestaurantRepository extends Repository
                 $restaurant['res_logo'],
                 $restaurant['res_image'],
                 $restaurant['res_d'],
-                $restaurant['res_rating'],
+                $restaurant['res_like'],
                 $restaurant['res_id']
             );
         }
@@ -149,7 +149,7 @@ class RestaurantRepository extends Repository
             $restaurants['res_logo'],
             $restaurants['res_image'],
             $restaurants['res_d'],
-            $restaurants['res_rating'],
+            $restaurants['res_like'],
             $restaurants['res_id'],
             $startHour,
             $endHour
@@ -199,7 +199,6 @@ class RestaurantRepository extends Repository
             $restaurant->getResLogo(),
             $restaurant->getResImage(),
             $restaurant->getResd(),
-            $restaurant->getResRating()
         ]);
     }
 
@@ -224,5 +223,14 @@ class RestaurantRepository extends Repository
             }
             throw $e;
         }
+    }
+
+    public function like(int $res_id) {
+        $stmt = $this->database->connect()->prepare('
+            UPDATE restaurants SET res_like = res_like + 1 WHERE res_id = :id
+         ');
+
+        $stmt->bindParam(':id', $res_id, PDO::PARAM_INT);
+        $stmt->execute();
     }
 }

@@ -28,24 +28,24 @@ $userType = $_SESSION['user']['type'];
     <div class="desktop">
         <nav>
             <div class="logo">
-                <img src="public/img/logo.svg">
+                <img src="/public/img/logo.svg">
                 <p>ReservEat</p>
             </div>
             <ul>
                 <li>
-                    <a href="home_page" class="button">
+                    <a href="/home_page" class="button">
                         <i class="fa-solid fa-house"></i>
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="restaurant_page" class="button">
+                    <a href="/restaurant_page" class="button">
                         <i class="fa-solid fa-utensils"></i>
                         Restaurants
                     </a>
                 </li>
                 <li>
-                    <a href="my_reservation" class="button">
+                    <a href="/my_reservation" class="button">
                         <i class="fa-regular fa-calendar"></i>
                         My reservation
                     </a>
@@ -53,21 +53,21 @@ $userType = $_SESSION['user']['type'];
                 <?php
                 if ($userType == 2) {
                     echo '<li>
-                                <a href="add_restaurant" class="button">
-                                    <i class="fa-solid fa-plus"></i>
-                                    Add restaurant
-                                </a>
-                            </li>';
+                            <a href="/add_restaurant" class="button">
+                                <i class="fa-solid fa-plus"></i>
+                                Add restaurant
+                            </a>
+                        </li>';
                 }
                 ?>
                 <li class='chosen'>
-                    <a href="profile_page" class="button">
+                    <a href="/profile_page" class="button">
                         <i class="fa-solid fa-user"></i>
                         My profile
                     </a>
                 </li>
                 <li>
-                    <a href="logout" class="button">
+                    <a href="/logout" class="button">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         Sign out
                     </a>

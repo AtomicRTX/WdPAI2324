@@ -97,7 +97,7 @@ $userType = $_SESSION['user']['type'];
                             <div class="info">
                                 <div class="infoB">
                                     <p class="n"><?= $reservation->getResName(); ?></p>
-                                    <p class="d">Reservation date : <?= $reservation->getDate()->format('d/m/y'); ?> <?= $reservation->getHour()->format('H:i:s') ?></p>
+                                    <p class="d">Reservation date : <?= $reservation->getDate()->format('Y-m-d'); ?> <?= $reservation->getHour()->format('H:i:s') ?></p>
                                     <p class="p">Number of people : <?= $reservation->getNumberPeople(); ?></p>
                                 </div>
                                 <button class="cancel-btn"

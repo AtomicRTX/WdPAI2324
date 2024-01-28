@@ -39,10 +39,10 @@ class Restaurant
     private $res_d;
     private $res_start;
     private $res_end;
-    private $res_rating;
+    private $res_like;
 
 
-    public function __construct(string $name, string $location, string $logo, string $image, string $description, int $rating, int $id = null, DateTime $res_start=null, DateTime $res_end=null)
+    public function __construct(string $name, string $location, string $logo, string $image, string $description, int $rating = 0, int $id = null, DateTime $res_start=null, DateTime $res_end=null)
     {
         $this->res_id = $id;
         $this->res_name = $name;
@@ -52,7 +52,7 @@ class Restaurant
         $this->res_d = $description;
         $this->res_start = $res_start ?? new DateTime('14:00:00');
         $this->res_end = $res_end ?? new DateTime('22:00:00');
-        $this->res_rating = $rating;
+        $this->res_like = $rating;
     }
 
 
@@ -79,8 +79,8 @@ class Restaurant
         return $this->res_logo;
     }
 
-    public function getResRating(): int
+    public function getResLike(): int
     {
-        return $this->res_rating;
+        return $this->res_like;
     }
 }

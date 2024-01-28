@@ -26,4 +26,6 @@ Router::post('register', 'SecurityController');
 Router::post('add_restaurant', 'RestaurantController');
 Router::post('edit', 'UserController');
 
+Router::get('like', 'RestaurantController');
+
 Router::run($path);

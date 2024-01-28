@@ -9,10 +9,6 @@ body {
     background-color: #F3F3F3;
 }
 
-.mobile{
-    display: none;
-}
-
 .desktop {
     display: flex;
     align-items: center;

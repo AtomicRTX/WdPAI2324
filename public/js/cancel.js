@@ -15,7 +15,7 @@ function setupCancelButtons() {
             let hoursDiff = Math.floor(timeDiff / (60 * 60 * 1000));
 
             if (hoursDiff < 1) {
-                alert("Cannot cancel reservation. Less than 1 hour remaining.");
+                alert("Cannot cancel reservation. Less than 1 hour remaining or reservation has already happened.");
                 return;
             }
 

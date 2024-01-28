@@ -30,7 +30,7 @@ $userType = $_SESSION['user']['type'];
     <div class="desktop">
         <nav>
             <div class="logo">
-                <img src="/public/img/logo.svg" alt="LOGO">
+                <img src="/public/img/logo.svg">
                 <p>ReservEat</p>
             </div>
             <ul>

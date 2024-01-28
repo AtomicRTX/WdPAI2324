@@ -4,31 +4,25 @@
 
 ## Table of Contents
 
-- [Overview](#overview)
+- [Introduction](#introduction)
 - [Features](#features)
-- [Getting Started](#getting-started)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
+- [Technologies](#technologies)
+- [Diagram ERD](#diagram-erd)
+- [Screenshots from app](#screenshots-from-app)
 
-## Overview
+## Introduction
 
-Provide a brief introduction to your online restaurant reservation web application. Explain what it does, why it exists, and who its target audience is.
+Welcome to the Online Restaurant Reservation App project! This application aims to simplify the process of reserving tables in restaurants, providing users with convenience and flexibility in planning their dining experiences.
 
 ## Features
 
-List the key features of your web application. You can use bullet points for this section. Here's an example:
-
 - User registration and authentication
 - Restaurant search and browsing
-- Reservation creation and management
-- User reviews and ratings for restaurants
-- Notifications and reminders
-- Payment integration
-- Admin dashboard for restaurant owners
+- Reservation creation and management 
+- Restaurant creation and management (only for admin)
+- User ratings for restaurants
 
 ## Getting Started
 
@@ -36,12 +30,48 @@ Explain how to get your application up and running. This should include details 
 
 ### Prerequisites
 
-List any software or services that users need to have installed or set up before they can use your application. For example:
+Before you begin, make sure you have the following software and services installed or set up:
 
-- Node.js
-- MongoDB
-- Stripe API key (for payment processing)
+- **Docker**: Install Docker on your machine. You can download Docker from [the official website](https://www.docker.com/get-started).
 
 ### Installation
 
-Provide step-by-step instructions for installing and setting up your application. This could include the following:
+Follow these steps to install and set up reservation app using Docker Compose:
+
+1. **Clone the repository to your local machine.**
+   ```bash
+   git clone https://github.com/your-username/online-restaurant-reservation.git
+   
+2. **Build the Docker containers.**
+   ```bash
+    docker-compose build
+
+3. **Start the application.**
+   ```bash
+    docker-compose up
+
+### Technologies
+
+- CSS
+- HTML
+- PHP
+- JS
+- DOCKER
+- POSTGRESQL
+
+### Diagram ERD
+
+![Diagram ERD](public/img/readme/Diagram 1.png)
+
+### Screenshots from app
+
+![Welcome page](public/img/readme/welcome.png)
+
+![Login page](public/img/readme/login.png)
+
+![Home page](public/img/readme/home.png)
+
+![Restaurants page](public/img/readme/restaurants.png)
+
+![My reservation page](public/img/readme/reservation.png)
+

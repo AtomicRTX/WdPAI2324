@@ -92,4 +92,10 @@ class RestaurantController extends AppController
         }
     }
 
+    public function like(int $res_id) {
+
+        $this->restaurantRepository->like($res_id);
+        http_response_code(200);
+    }
+
 }

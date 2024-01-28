@@ -19,6 +19,7 @@ $userType = $_SESSION['user']['type'];
     <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/fc73b75636.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/public/js/logo.js" defer></script>
+    <script type="text/javascript" src="/public/js/statistic.js" defer></script>
     <script type="text/javascript" src="./public/js/search.js" defer></script>
     <link rel="stylesheet" type="text/css" href="/public/css/home_page.css">
     <title>ReservEat</title>
@@ -135,15 +136,16 @@ $userType = $_SESSION['user']['type'];
                 <?php if(isset($restaurants))
                     foreach ($restaurants as $restaurant): ?>
                         <a href="/restaurant_details?id=<?=$restaurant->getResId();?>">
-                            <div class="restaurant">
+                            <div class="restaurant" id="<?=$restaurant->getResId();?>">
                                 <img src="<?= $restaurant->getResLogo(); ?>" alt="LOGO RESTAURACJI">
                                 <div class="info">
                                     <div class="infoB">
                                         <p class="n"><?= $restaurant->getResName(); ?></p>
                                         <p class="l"><?= $restaurant->getResLocation(); ?></p>
                                     </div>
-                                    <p class="r">
-                                        Rating according to users : <?= $restaurant->getResRating(); ?>stars</p>
+                                    <div class="r">
+                                        <i class="fa-regular fa-thumbs-up">    <?= $restaurant->getResLike(); ?></i>
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -164,8 +166,9 @@ $userType = $_SESSION['user']['type'];
                     <p class="n">name</p>
                     <p class="l">location</p>
                 </div>
-                <p class="r">
-                    Rating according to users : 0 stars</p>
+                <div class="r">
+                    <i class="fa-regular fa-thumbs-up">0</i>
+                </div>
             </div>
         </div>
     </a>

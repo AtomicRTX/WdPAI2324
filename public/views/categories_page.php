@@ -94,7 +94,10 @@ $userType = $_SESSION['user']['type'];
                                 <p><?= $restaurant->getResName(); ?></p>
                                 <p><?= $restaurant->getResLocation(); ?></p>
                             </div>
-                            <p>Rating according to users : <?= $restaurant->getResRating(); ?> gwiazdek</p>
+                            <div class="r">
+                                <i class="fa-regular fa-thumbs-up">  <?= $restaurant->getResLike(); ?></i>
+                                <i class="fa-regular fa-thumbs-down">  <?= $restaurant->getResDislike(); ?></i>
+                            </div>
                         </div>
                     </div>
                 </a>
