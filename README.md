@@ -61,17 +61,27 @@ Follow these steps to install and set up reservation app using Docker Compose:
 
 ### Diagram ERD
 
-![Diagram ERD](public/img/readme/Diagram 1.png)
+![Diagram ERD](public/img/readme/Diagram1.png)
 
 ### Screenshots from app
 
+Welcome page :
+
 ![Welcome page](public/img/readme/welcome.png)
+
+Login page :
 
 ![Login page](public/img/readme/login.png)
 
+Home page :
+
 ![Home page](public/img/readme/home.png)
 
+Restaurant page :
+
 ![Restaurants page](public/img/readme/restaurants.png)
+
+My reservation page :
 
 ![My reservation page](public/img/readme/reservation.png)
 
