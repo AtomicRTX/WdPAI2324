@@ -6,8 +6,17 @@ likeButtons.forEach(button => button.addEventListener("click", function(event){
     const container = likes.parentElement.parentElement.parentElement;
     const id = container.getAttribute("id");
 
-    fetch(`/like/${id}`)
-        .then(function () {
-            likes.innerHTML = parseInt(likes.innerHTML) + 1;
-        })
+    const likedRestaurants = JSON.parse(localStorage.getItem('likedRestaurants')) || [];
+
+    if (likedRestaurants.includes(id)) {
+        alert("Już polubiłeś tę restaurację!");
+    } else {
+        fetch(`/like/${id}`)
+            .then(function () {
+                likes.innerHTML = parseInt(likes.innerHTML) + 1;
+
+                likedRestaurants.push(id);
+                localStorage.setItem('likedRestaurants', JSON.stringify(likedRestaurants));
+            });
+    }
 }));

@@ -11,10 +11,10 @@ function setupCancelButtons() {
 
             let reservationDateTime = new Date(date + " " + hour);
             let currentDateTime = new Date();
-            let timeDiff = reservationDateTime - currentDateTime;
-            let hoursDiff = Math.floor(timeDiff / (60 * 60 * 1000));
+            let time = reservationDateTime - currentDateTime;
+            let hours = time / (60 * 60 * 1000);
 
-            if (hoursDiff < 1) {
+            if (hours < 1) {
                 alert("Cannot cancel reservation. Less than 1 hour remaining or reservation has already happened.");
                 return;
             }
@@ -44,4 +44,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 setInterval(function() {
     setupCancelButtons();
-}, 4000);
+}, 5000);

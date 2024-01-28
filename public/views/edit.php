@@ -20,6 +20,7 @@ $userType = $_SESSION['user']['type'];
     <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/fc73b75636.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/public/js/logo.js" defer></script>
+    <script type="text/javascript" src="/public/js/detector.js" defer></script>
     <link rel="stylesheet" type="text/css" href="public/css/edit.css">
     <title>ReservEat</title>
 </head>
@@ -96,7 +97,7 @@ $userType = $_SESSION['user']['type'];
 
                 <section>
                     <div class="basicInformation">
-                        <form action="edit" method="post">
+                        <form action="/edit" method="post">
                             <div class="data">
                                 <label for="userName">Name :</label>
                                 <input type="text" id="userName" name="name" value="<?php echo $userName; ?>" required>
@@ -110,7 +111,7 @@ $userType = $_SESSION['user']['type'];
                         <button type="submit">Save Changes</button>
                         </form>
                     </div>
-                    <img src="public/img/addrestaurant.svg" alt="User Photo">
+                    <img src="/public/img/addrestaurant.svg" alt="User Photo">
                 </section>
             </div>
         </main>

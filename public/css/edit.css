@@ -191,3 +191,10 @@ img{
     width: 200px;
     height: 220px;
 }
+
+.no-valid {
+    border: 3px solid red;
+    border-radius: 2em;
+    box-shadow: 0 0 0.2em red;
+    outline: none;
+}
