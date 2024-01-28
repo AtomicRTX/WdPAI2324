@@ -1,8 +1,47 @@
-document.addEventListener('DOMContentLoaded', function() {
-    let reservation = document.querySelector('.cancel-btn');
+function setupCancelButtons() {
+    let cancelButtons = document.querySelectorAll('.cancel-btn');
 
-    reservation.addEventListener('click', function() {
-        window.location.href = '/cancel_reservation';
+    cancelButtons.forEach(function(cancelButton) {
+        cancelButton.addEventListener('click', function() {
+            let userId = cancelButton.getAttribute('data-user-id');
+            let resId = cancelButton.getAttribute('data-res-id');
+            let date = cancelButton.getAttribute('data-date');
+            let hour = cancelButton.getAttribute('data-hour');
+            let numberPeople = cancelButton.getAttribute('data-number-people');
 
+            let reservationDateTime = new Date(date + " " + hour);
+            let currentDateTime = new Date();
+            let timeDiff = reservationDateTime - currentDateTime;
+            let hoursDiff = Math.floor(timeDiff / (60 * 60 * 1000));
+
+            if (hoursDiff < 1) {
+                alert("Cannot cancel reservation. Less than 1 hour remaining.");
+                return;
+            }
+
+            cancelButton.closest('.reservation').remove();
+
+            fetch('/cancel_reservation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userId: userId,
+                    resId: resId,
+                    date: date,
+                    hour: hour,
+                    numberPeople: numberPeople,
+                }),
+            })
+                .then(response => response.json());
+        });
     });
+}
+document.addEventListener('DOMContentLoaded', function() {
+    setupCancelButtons();
 });
+
+setInterval(function() {
+    setupCancelButtons();
+}, 4000);

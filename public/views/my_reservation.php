@@ -18,6 +18,7 @@ $userType = $_SESSION['user']['type'];
     <link href="https://fonts.googleapis.com/css2?family=Actor&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/fc73b75636.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/public/js/logo.js" defer></script>
+    <script type="text/javascript" src="/public/js/cancel.js" defer></script>
     <script type="text/javascript" src="./public/js/search_rv.js" defer></script>
     <link rel="stylesheet" type="text/css" href="/public/css/my_reservation.css">
     <title>ReservEat</title>
@@ -99,7 +100,13 @@ $userType = $_SESSION['user']['type'];
                                     <p class="d">Reservation date : <?= $reservation->getDate()->format('d/m/y'); ?> <?= $reservation->getHour()->format('H:i:s') ?></p>
                                     <p class="p">Number of people : <?= $reservation->getNumberPeople(); ?></p>
                                 </div>
-                                <button class="cancel-btn">Cancel reservations</button>
+                                <button class="cancel-btn"
+                                        data-user-id="<?= $reservation->getUserId(); ?>"
+                                        data-res-id="<?= $reservation->getResId(); ?>"
+                                        data-date="<?= $reservation->getDate()->format('Y-m-d'); ?>"
+                                        data-hour="<?= $reservation->getHour()->format('H:i:s'); ?>"
+                                        data-number-people="<?= $reservation->getNumberPeople(); ?>">Cancel reservations
+                                </button>
                             </div>
                         </div>
                     </a>
@@ -119,7 +126,12 @@ $userType = $_SESSION['user']['type'];
                     <p class="d">Reservation date : Data hour</p>
                     <p class="p">Number of people : 0</p>
                 </div>
-                <button class="cancel-btn">Cancel reservations</button>
+                <button class="cancel-btn"
+                        data-user-id=""
+                        data-res-id=""
+                        data-date=""
+                        data-hour=""
+                        data-number-people="">Cancel reservations</button>
             </div>
         </div>
     </a>

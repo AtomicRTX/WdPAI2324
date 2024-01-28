@@ -81,10 +81,6 @@ $userType = $_SESSION['user']['type'];
     </nav>
     <main>
         <header>
-            <form class='search_bar'>
-                <input name="Search by name" type="text" placeholder="Search by name">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </form>
         </header>
         <p>Restaurants from the selected category</p>
         <section>

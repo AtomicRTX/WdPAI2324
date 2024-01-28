@@ -242,8 +242,9 @@ select, .datePicker{
     margin: 5em auto;
     border-radius: 2em;
     background: #52b6e9;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.10);
+    box-shadow: 0 0.25em 0.25em 0 rgba(0, 0, 0, 0.10);
     color: #FFF;
+    border: none;
     text-align: center;
 }
 

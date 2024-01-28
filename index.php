@@ -14,7 +14,7 @@ Router::post('search', 'RestaurantController');
 Router::post('search_rv', 'ReservationController');
 
 Router::get('my_reservation', 'ReservationController');
-Router::get('cancel_reservation', 'ReservationController');
+Router::post('cancel_reservation', 'ReservationController');
 
 Router::get('restaurant_details', 'RestaurantController');
 Router::post('restaurant_reservation', 'RestaurantController');

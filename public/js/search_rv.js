@@ -17,6 +17,7 @@ search_rv.addEventListener("keyup", function(event){
         }).then(function(reservations){
             reservationContainer.innerHTML="";
             loadReservation(reservations);
+
         });
     }
 });
@@ -43,6 +44,13 @@ function createReservation(reservation){
 
     const people = clone.querySelector(".p");
     people.innerHTML = `Number of people : ${reservation.number_people}`;
+
+    const cancelButton = clone.querySelector(".cancel-btn");
+    cancelButton.setAttribute("data-user-id", reservation.user_id);
+    cancelButton.setAttribute("data-res-id", reservation.res_id);
+    cancelButton.setAttribute("data-date", reservation.date);
+    cancelButton.setAttribute("data-hour", reservation.hour);
+    cancelButton.setAttribute("data-number-people", reservation.number_people);
 
     reservationContainer.appendChild(clone);
 }

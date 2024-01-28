@@ -86,7 +86,7 @@ ORDER BY
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function deleteReservation(int $user_id, int $res_id, DateTime $date, DateTime $hour, int $numberPeople): void
+    public function deleteReservation(int $user_id, int $res_id, string $date, string $hour, int $numberPeople): void
     {
         $stmt = $this->database->connect()->prepare('
             DELETE FROM public.reservation

@@ -37,6 +37,24 @@ class ReservationController extends AppController
     }
     public function cancel_reservation()
     {
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+        if($contentType === "application/json"){
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content, true);
 
+            $userId = $decoded['userId'];
+            $resId = $decoded['resId'];
+            $date = new DateTime($decoded['date']);
+            $hour = new DateTime($decoded['hour']);
+            $numberPeople = $decoded['numberPeople'];
+            $dateP = $date->format('Y-m-d');
+            $hourP = $hour->format('H:i');
+
+            $result = $this->reservationRepository->deleteReservation($userId, $resId, $dateP, $hourP, $numberPeople);
+
+            header('Content-type: application/json');
+            http_response_code(200);
+            echo json_encode($result);
+        }
     }
 }
