@@ -96,7 +96,6 @@ $userType = $_SESSION['user']['type'];
                             </div>
                             <div class="r">
                                 <i class="fa-regular fa-thumbs-up">  <?= $restaurant->getResLike(); ?></i>
-                                <i class="fa-regular fa-thumbs-down">  <?= $restaurant->getResDislike(); ?></i>
                             </div>
                         </div>
                     </div>
